@@ -5,13 +5,9 @@ const deps = require('./package.json').dependencies
 
 module.exports = {
         mfePlugin: new ModuleFederationPlugin({
-            name: 'maddy-login',
+            name: 'maddy-shell',
             filename: 'remoteEntry.js',
-            exposes: {
-                "./LoginComponent": "./src/pages/LoginPage.tsx",
-                "./SignupComponent": "./src/pages/SignupPage.tsx",
-                "./ForgetComponent": "./src/pages/ForgetPage.tsx",
-             },             
+            exposes: {},             
             remotes: {},
             shared: {
                 ...deps,
