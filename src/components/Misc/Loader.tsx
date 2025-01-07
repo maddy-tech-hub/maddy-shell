@@ -23,18 +23,22 @@ const LoaderContainer = styled.div<{ fullScreen?: boolean }>`
   justify-content: center;
   align-items: center;
   position: ${(props) => (props.fullScreen ? 'fixed' : 'absolute')};
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 9999;
+
   ${(props) =>
     props.fullScreen &&
     `
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    flex-direction: column;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
   `}
 `;
 

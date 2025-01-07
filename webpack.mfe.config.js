@@ -8,7 +8,10 @@ module.exports = {
             name: 'maddy-shell',
             filename: 'remoteEntry.js',
             exposes: {},             
-            remotes: {},
+            remotes: {
+                maddy_login: "maddy_login@http://maddy-login.s3-website.ap-south-1.amazonaws.com/remoteEntry.js",
+                maddy_widget: "maddy_widget@http://maddy-widgets.s3-website.ap-south-1.amazonaws.com/remoteEntry.js",
+              },
             shared: {
                 ...deps,
                 react: { singleton: true,  requiredVersion: deps.react },
