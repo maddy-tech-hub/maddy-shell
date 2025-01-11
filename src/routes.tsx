@@ -4,7 +4,7 @@ import Loader from './components/Misc/Loader';
 import { RootStateType } from './redux/store';
 import { useSelector } from 'react-redux';
 import { RouteConfig } from './interfaces/common';
-import { headerData, quickLinks, whatsappData } from './Services/api';
+import { headerData, whatsappData } from './Services/api';
 
 const Header = React.lazy(() => import('maddy_widget/Header'));
 const Footer = React.lazy(() => import('maddy_widget/Footer'));
@@ -41,6 +41,18 @@ const routes: RouteConfig[] = [
     path: '/projects',
     label: 'Projects',
     Component: React.lazy(() => import('./pages/Projects')),
+  },
+  { path: "/login",
+    label: 'login',
+    Component: React.lazy(() => import("maddy_login/LoginComponent"))
+  },
+  { path: "/signup",
+    label: 'signup',
+    Component: React.lazy(() => import("maddy_login/SignupComponent"))
+  },
+  { path: "/forget",
+    label: 'forget',
+    Component: React.lazy(() => import("maddy_login/ForgetComponent"))
   },
 ];
 
