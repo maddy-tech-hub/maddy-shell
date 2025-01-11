@@ -19,7 +19,7 @@ const App: React.FC = (): JSX.Element => (
       <PersistGate loading={null} persistor={persistor}>
         <IntlProvider locale={locale} messages={messages[locale]}>
           <GlobalStyles />
-          <AppRoutes />
+          <AppRoutes/>
         </IntlProvider>
       </PersistGate>
     </Provider>

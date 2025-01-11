@@ -15,59 +15,52 @@ const initialState: ServicesState = {
   services: [
     {
       label: 'Consulting & Staffing',
-      description:
-        'We offer comprehensive employment services such as payroll and benefits administration, HR management, and assistance.',
+      description: 'We offer comprehensive employment services such as payroll and benefits administration, HR management, and assistance.',
       icon: 'icon1',
-      url: '/consulting-staffing',
+      url: ''
     },
     {
       label: 'Product Development',
-      description:
-        'Looking for a fast, creative, and experienced product design company?',
+      description: 'Looking for a fast, creative, and experienced product design company?',
       icon: 'icon2',
-      url: '/product-development',
+      url: ''
     },
     {
       label: 'UX / UI Design Strategy',
       description: 'Complex problems solved by Service Design Thinking.',
       icon: 'icon3',
-      url: '/ux-ui-design-strategy',
+      url: ''
     },
     {
       label: 'Web Design And Development',
-      description:
-        'We want to help them easily find you and discover all that you have to offer.',
+      description: 'We want to help them easily find you and discover all that you have to offer.',
       icon: 'icon4',
-      url: '/web-design-development',
+      url: ''
     },
     {
       label: 'Mobile App Development',
-      description:
-        'Your digital partner to create inspirational design and robust solution for Web, Mobile & Cloud.',
+      description: 'Your digital partner to create inspirational design and robust solution for Web, Mobile & Cloud.',
       icon: 'icon5',
-      url: '/mobile-app-development',
+      url: ''
     },
     {
       label: 'Digital Marketing',
-      description:
-        "Are you looking for your company's domain to appear on the top of the 1st page in Google?",
+      description: 'Are you looking for your company\'s domain to appear on the top of the 1st page in Google?',
       icon: 'icon6',
-      url: '/digital-marketing',
+      url: ''
     },
     {
       label: 'Branding',
-      description:
-        "Good branding can set you apart from the crowd and bring your company's vision to life.",
+      description: 'Good branding can set you apart from the crowd and bring your company\'s vision to life.',
       icon: 'icon7',
-      url: '/branding',
+      url: ''
     },
     {
       label: 'Outdoor Marketing',
-      description:
-        'We make sure your brand is heard and seen in every possible way and yes we measure as well!',
+      description: 'We make sure your brand is heard and seen in every possible way and yes we measure as well!',
       icon: 'icon8',
-      url: '/outdoor-marketing',
-    },
+      url: ''
+    }
   ],
 };
 
@@ -81,5 +74,5 @@ const servicesSlice = createSlice({
   },
 });
 
-export const { setServices } = servicesSlice.actions;
+export const {setServices} = servicesSlice.actions;
 export default servicesSlice.reducer;

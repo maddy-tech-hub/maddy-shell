@@ -45,7 +45,7 @@ module.exports = {
     devServer: {
         hot: true,
         historyApiFallback: true,
-        port: process.env.PORT || 1122,
+        port: process.env.PORT || 8080,
     },
     target: 'web',
     output: {
@@ -94,14 +94,6 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                ],
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,

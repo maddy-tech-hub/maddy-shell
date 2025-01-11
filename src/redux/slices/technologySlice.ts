@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface Technology {
   url: string;
@@ -6,7 +6,7 @@ export interface Technology {
 }
 
 export interface TechnologyState {
-  technologies: Technology[];
+  technologies: Technology[]
 }
 
 const initialState: TechnologyState = {
@@ -17,9 +17,9 @@ const initialState: TechnologyState = {
     { url: '', label: 'DevOps' },
     { url: '', label: 'Software Testing' },
     { url: '', label: 'Programming' },
-    { url: '', label: 'Web Designing' },
+    { url: '', label: 'Web Designing' }
   ],
-};
+}
 
 const technologySlice = createSlice({
   name: 'technology',

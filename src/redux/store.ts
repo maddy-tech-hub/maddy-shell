@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import servicesSlice from './slices/servicesSlice';
 import technologySlice from './slices/technologySlice';
 import contactDetailsSlice from './slices/contactDetailsSlice';
-import projectSlice from './slices/projectSlice';
+import contactFormSlice from './slices/contactFormSlice';
 
 const persistConfig = {
   key: 'root', // The key under which the persisted state will be stored.
@@ -12,8 +12,10 @@ const persistConfig = {
 };
 
 export const rootReducer = combineReducers({
+  servicesSlice,
+  technologySlice,
   contactDetailsSlice,
-  projectSlice,
+  contactFormSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
