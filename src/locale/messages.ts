@@ -1,24 +1,6 @@
 const messages: Record<string, Record<string, string>> = {
   en: {
-    loading: 'Loading...',
-    aboutTitle: 'Contact Us',
-    fullNameLabel: 'Your Full Name',
-    emailLabel: 'Email Address',
-    mobileLabel: 'Mobile Number',
-    messageLabel: 'Write Message',
-    buttonLabel: 'Send Message',
-    successMessageTitle: 'Thank you for choosing us!',
-    successMessage: 'Our team will contact you shortly.',
-
-    greeting: "Hello, It's Me",
-    name: 'Madhava Reddy Vemireddy',
-    bioTitle: 'Full Stack Developer',
-    description:
-      'I specialize in building responsive frontends with React and scalable backends with .NET C#. My focus is on delivering modern, efficient, and user-friendly web solutions.',
-    linkText: 'More About Me',
-    linkURL: '/about',
-
-    // Authentication and general messages
+    // Existing messages...
     loginFailed: 'Login failed. Please try again.',
     unexpectedError: 'An unexpected error occurred. Please try again.',
     loginPageTitle: 'Login',
@@ -45,47 +27,70 @@ const messages: Record<string, Record<string, string>> = {
     alreadyMember: 'Already have an account?',
     signupSuccessMessage: 'Account created successfully! You can now log in.',
     verifyingOtp: 'Verifying OTP...',
+    resetPasswordError: 'Failed to reset password. Please try again.',
+    loading: 'Loading...',
+    
+    // Success modal
+    ok: 'OK',
 
-    // Forgot password
-    forgetPassword: 'Forget Password',
-    resetPassword: 'Reset Password',
-    enterEmail: 'Enter your email',
-    submitEmail: 'Submit Email',
-    currentPassword: 'Current Password',
-    newPassword: 'New Password',
-    confirmNewPassword: 'Confirm New Password',
-    backToLogin: 'Back to',
-    passwordResetSuccess: 'Password reset successfully!',
+    // Field Validation Errors
+    usernameRequired: 'Username is required.',
+    passwordRequired: 'Password is required.',
+    invalidUsername: 'Invalid username.',
+    invalidPassword: 'Invalid password.',
+    fullNameRequired: 'Full name is required.',
+    emailRequired: 'Email is required.',
+    emailInvalid: 'Invalid email format.',
+    passwordInvalid: 'Password must contain at least 8 characters, including uppercase, lowercase, and a number.',
+    phoneNumberRequired: 'Phone number is required.',
+    phoneNumberInvalid: 'Invalid phone number format.',
+    
+    // General Errors
+    generalError: 'An error occurred. Please try again later.',
+    userAlreadyExists: 'An account with this email already exists.',
+    forgetPasswordError: 'Unable to send the password reset email. Please try again later.',
+    resetPasswordError: 'Unable to reset the password. Please check your credentials and try again.',
+    
+    // Forget/Reset Password Specific
+    enterEmail: 'Enter your email address',
+    submitEmail: 'Submit email',
+    currentPassword: 'Current password',
+    newPassword: 'New password',
+    confirmNewPassword: 'Confirm new password',
+    resetPassword: 'Reset password',
+    backToLogin: 'Back to login',
+    passwordResetSuccess: 'Your password has been reset successfully. You can now log in.',
     submitting: 'Submitting...',
     resetting: 'Resetting...',
-    forgetPasswordError: 'Failed to submit email. Please try again.',
-    resetPasswordError: 'Failed to reset password. Please try again.',
+    
+    // Forget Page - Specific to your provided ForgetPage component
+    forgetPasswordTitle: 'Forgot Password',
+    resetPasswordTitle: 'Reset Password',
+    resetPasswordInstruction: 'Please enter your current password and your new password to reset it.',
 
-  },
-  fr: {
-    loading: 'Chargement...',
-    aboutTitle: 'Contactez-nous',
-    fullNameLabel: 'Votre nom complet',
-    emailLabel: 'Adresse e-mail',
-    mobileLabel: 'Numéro de mobile',
-    messageLabel: 'Écrire un message',
-    buttonLabel: 'Envoyer le message',
-    successMessageTitle: 'Merci de nous avoir choisis!',
-    successMessage: 'Notre équipe vous contactera sous peu.',
-
-    greeting: "Bonjour, c'est moi",
+    // New Content for Profile
+    greeting: "Hello, It's Me",
     name: 'Madhava Reddy Vemireddy',
-    bioTitle: 'Développeur Full Stack',
+    bioTitle: 'Full Stack Developer',
     description:
-      'Je me spécialise dans la création de frontends réactifs avec React et de backends évolutifs avec .NET C#. Mon objectif est de fournir des solutions web modernes, efficaces et conviviales.',
-    linkText: 'En savoir plus sur moi',
+      'I specialize in building responsive frontends with React and scalable backends with .NET C#. My focus is on delivering modern, efficient, and user-friendly web solutions.',
+    linkText: 'More About Me',
     linkURL: '/about',
 
-
-    // Authentication and general messages
+    // New Content for Contact Us / About Page
+    aboutTitle: 'Contact Us',
+    fullNameLabel: 'Your Full Name',
+    emailLabel: 'Email Address',
+    mobileLabel: 'Mobile Number',
+    messageLabel: 'Write Message',
+    buttonLabel: 'Send Message',
+    successMessageTitle: 'Thank you for choosing us!',
+    successMessage: 'Our team will contact you shortly.',
+  },
+  fr: {
+    // Existing messages...
     loginFailed: 'Échec de la connexion. Veuillez réessayer.',
-    unexpectedError:
-      "Une erreur inattendue s'est produite. Veuillez réessayer.",
+    unexpectedError: "Une erreur inattendue s'est produite. Veuillez réessayer.",
     loginPageTitle: 'Se connecter',
     loggingIn: 'Connexion...',
     username: "Nom d'utilisateur",
@@ -108,26 +113,60 @@ const messages: Record<string, Record<string, string>> = {
     email: 'Email',
     phoneNumber: 'Numéro de téléphone',
     alreadyMember: 'Vous avez déjà un compte?',
-    signupSuccessMessage:
-      'Compte créé avec succès ! Vous pouvez maintenant vous connecter.',
+    signupSuccessMessage: 'Compte créé avec succès ! Vous pouvez maintenant vous connecter.',
     verifyingOtp: "Vérification de l'OTP...",
+    resetPasswordError: "Échec de la réinitialisation du mot de passe. Veuillez réessayer.",
+    loading: 'Chargement...',
+    
+    // Success modal
+    ok: 'D\'accord',
 
-    // Forgot password
-    forgetPassword: 'Mot de passe oublié',
-    resetPassword: 'Réinitialiser le mot de passe',
-    enterEmail: 'Entrez votre email',
-    submitEmail: "Envoyer l'email",
+    // Field Validation Errors
+    fullNameRequired: 'Le nom complet est requis.',
+    emailRequired: 'L\'email est requis.',
+    emailInvalid: 'Format d\'email invalide.',
+    passwordInvalid: 'Le mot de passe doit contenir au moins 8 caractères, y compris une majuscule, une minuscule et un chiffre.',
+    phoneNumberRequired: 'Le numéro de téléphone est requis.',
+    phoneNumberInvalid: 'Format du numéro de téléphone invalide.',
+    
+    // General Errors
+    generalError: 'Une erreur est survenue. Veuillez réessayer plus tard.',
+    userAlreadyExists: 'Un compte avec cet email existe déjà.',
+    
+    // Forget/Reset Password Specific
+    enterEmail: 'Entrez votre adresse e-mail',
+    submitEmail: 'Envoyer l\'e-mail',
     currentPassword: 'Mot de passe actuel',
     newPassword: 'Nouveau mot de passe',
     confirmNewPassword: 'Confirmer le nouveau mot de passe',
-    backToLogin: 'Retour à',
-    passwordResetSuccess: 'Mot de passe réinitialisé avec succès!',
+    resetPassword: 'Réinitialiser le mot de passe',
+    backToLogin: 'Retour à la connexion',
+    passwordResetSuccess: 'Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter.',
     submitting: 'Soumission...',
     resetting: 'Réinitialisation...',
-    forgetPasswordError: "Échec de l'envoi de l'email. Veuillez réessayer.",
-    resetPasswordError:
-      'Échec de la réinitialisation du mot de passe. Veuillez réessayer.',
+    
+    // Forget Page - Specific to your provided ForgetPage component
+    forgetPasswordTitle: 'Mot de passe oublié',
+    resetPasswordTitle: 'Réinitialiser le mot de passe',
+    resetPasswordInstruction: 'Veuillez entrer votre mot de passe actuel et votre nouveau mot de passe pour le réinitialiser.',
+
+    // New Content for Profile
+    greeting: "Bonjour, c'est moi",
+    name: 'Madhava Reddy Vemireddy',
+    bioTitle: 'Développeur Full Stack',
+    description:
+      'Je me spécialise dans la création d\'interfaces réactives avec React et de backends évolutifs avec .NET C#. Mon objectif est de fournir des solutions web modernes, efficaces et faciles à utiliser.',
+    linkText: 'En savoir plus sur moi',
+    linkURL: '/about',
+
+    // New Content for Contact Us / About Page
+    aboutTitle: 'Contactez-nous',
+    fullNameLabel: 'Votre nom complet',
+    emailLabel: 'Adresse e-mail',
+    mobileLabel: 'Numéro de téléphone',
+    messageLabel: 'Écrivez un message',
+    buttonLabel: 'Envoyer le message',
+    successMessageTitle: 'Merci de nous avoir choisis !',
+    successMessage: 'Notre équipe vous contactera sous peu.',
   },
 };
-
-export default messages;
