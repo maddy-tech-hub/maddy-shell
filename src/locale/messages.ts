@@ -49,7 +49,6 @@ const messages: Record<string, Record<string, string>> = {
     generalError: 'An error occurred. Please try again later.',
     userAlreadyExists: 'An account with this email already exists.',
     forgetPasswordError: 'Unable to send the password reset email. Please try again later.',
-    resetPasswordError: 'Unable to reset the password. Please check your credentials and try again.',
     
     // Forget/Reset Password Specific
     enterEmail: 'Enter your email address',
