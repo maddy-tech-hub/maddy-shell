@@ -1,88 +1,85 @@
-import React, { Suspense, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import Loader from "./components/Misc/Loader";
-import { useIntl } from "react-intl";
-import { useSelector } from "react-redux";
-import { RootStateType } from "./redux/store";
-import mainLogo from './assets/images/main-logo.jpeg'
+import React, { Suspense, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Loader from './components/Misc/Loader';
+import { RootStateType } from './redux/store';
+import { useSelector } from 'react-redux';
+import { RouteConfig } from './interfaces/common';
+import { headerData, quickLinks, whatsappData } from './Services/api';
 
-// Dynamic imports
-const Header = React.lazy(() => import("maddy_widget/Header"));
-const Footer = React.lazy(() => import("maddy_widget/Footer"));
-const WhatsAppWidget = React.lazy(() => import("maddy_widget/WhatsAppWidget"));
+const Header = React.lazy(() => import('maddy_widget/Header'));
+const Footer = React.lazy(() => import('maddy_widget/Footer'));
+const WhatsAppWidget = React.lazy(() => import('maddy_widget/WhatsAppWidget'));
 
-// Define your routes
-const routes = [
-  { path: "/", Component: React.lazy(() => import("maddy_login/LoginComponent")) },
-  { path: "/login", Component: React.lazy(() => import("maddy_login/LoginComponent")) },
-  { path: "/signup", Component: React.lazy(() => import("maddy_login/SignupComponent")) },
-  { path: "/forget", Component: React.lazy(() => import("maddy_login/ForgetComponent")) },
+// Define the routes array
+const routes: RouteConfig[] = [
+  {
+    path: '/',
+    label: 'Home',
+    Component: React.lazy(() => import('./pages/Home')),
+  },
+  {
+    path: '/about',
+    label: 'About',
+    Component: React.lazy(() => import('./pages/About')),
+  },
+  {
+    path: '/skills',
+    label: 'Skills',
+    Component: React.lazy(() => import('./pages/Skills')),
+  },
+  {
+    path: '/education',
+    label: 'Education',
+    Component: React.lazy(() => import('./pages/Education')),
+  },
+  {
+    path: '/experience',
+    label: 'Experience',
+    Component: React.lazy(() => import('./pages/Experience')),
+  },
+  {
+    path: '/projects',
+    label: 'Projects',
+    Component: React.lazy(() => import('./pages/Projects')),
+  },
 ];
 
 const AppRoutes: React.FC = () => {
-  const { location, socialLinks, companyName,phone } = useSelector((state: RootStateType) => state.contactDetailsSlice);
-  const services = useSelector((state: RootStateType) => state.servicesSlice.services);
-  const technologies = useSelector((state: RootStateType) => state.technologySlice.technologies);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const intl = useIntl();
-  
-  const quickLinks = [
-    { label: "Home", url: "/home" },
-    { label: "About Us", url: "/about" },
-    { label: "Services", url: "/services" },
-    { label: "Contact Us", url: "/contact" },
-  ];
-  
-  
+  const navigate = useNavigate();
+  const { location, socialLinks } = useSelector(
+    (state: RootStateType) => state.contactDetailsSlice
+  );
+  const [menuOpen, setMenuOpen] = useState<boolean>(headerData.menuOpen);
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
 
   return (
-    <React.Suspense fallback={<Loader text={intl.formatMessage({ id: 'loading' })} fullScreen={true}/>}>
-      {/* Header component */}
-      <Header
-        menuLinks={quickLinks}
-        logoSrc={mainLogo}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        onLoginClick={() => console.log("Login Clicked")}
-      />
-
-      {/* Main Routes */}
-      <div >
+    <>
+      <Suspense fallback={<Loader text="Loading..." fullScreen={true} />}>
+        <Header
+          menuLinks={headerData.menuLinks}
+          logoSrc={headerData.logoSrc}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          onLoginClick={handleLogin}
+          theme={headerData.theme}
+        />
         <Routes>
           {routes.map(({ path, Component }) => (
             <Route key={path} path={path} element={<Component />} />
           ))}
         </Routes>
-      </div>
-
-      {/* Footer component */}
-      <Footer
-      quickLinks={quickLinks}
-        socialLinks={socialLinks}
-        services={services}
-        technologies={technologies}
-        logoSrc={mainLogo}
-        companyName={companyName}
-        address={location.address}
-        themeColors={{
-          background: "#333333",
-          text: "#ffffff",
-          accent: "#FFD700",
-          linkHover: "#FFA500",
-        }}
-      />
-
-      {/* WhatsApp Widget */}
-      <WhatsAppWidget
-        phoneNumber="8886380746"
-        position={{ bottom: 50, right: 30 }}
-        backgroundColor="#25D366"
-        iconColor="white"
-        iconSize={35}
-        tooltipText="Contact us on WhatsApp"
-        draggable={true}
-      />
-    </React.Suspense>
+        <Footer
+          address={location.address}
+          logoSrc={headerData.logoSrc}
+          socialLinks={socialLinks}
+          linkSections={[]}
+        />
+        <WhatsAppWidget {...whatsappData} />
+      </Suspense>
+    </>
   );
 };
 

@@ -1,0 +1,28 @@
+.skills-container {
+  .card-section-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 15px;
+  }
+
+  .card {
+    padding: 15px;
+    font-size: 0.9rem;
+    border: 1px solid var(--professional-border-color);
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+  }
+
+  .card-details li {
+    font-size: 0.9rem;
+  }
+
+  .card-duration {
+    font-size: 0.8rem; /* Smaller duration font */
+  }
+}

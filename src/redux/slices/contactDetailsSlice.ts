@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ContactDetailsState {
+  siteTitle: string;
   location: {
     title: string;
     address: string;
@@ -9,59 +10,43 @@ interface ContactDetailsState {
     title: string;
     number1: string;
     number2: string;
+    whatsapp?: string;
   };
   email: {
     title: string;
     address: string;
     website: string;
   };
-  instagram: {
-    title: string;
-    profile: string;
-  };
-  linkedin: {
-    title: string;
-    profile: string;
-  };
   socialLinks: {
-    facebook: string;
-    twitter: string;
-    linkedin: string;
-    instagram: string;
+    whatsapp?: string;
+    instagram?: string;
+    linkedin?: string;
+    gmail?: string;
   };
-  companyName: string;
 }
 
 const initialState: ContactDetailsState = {
+  siteTitle: 'MaddyTech',
   location: {
-    title: "Our Location",
-    address: "No.143, 4th Cross, Prasanth Extension, Whitefield, Bangalore - 560066 (Near Thalassery Restaurant)"
+    title: 'Our Location',
+    address: 'No 16, 18th Cross 6th Main, BTm 2nd Stage, Bangalore, 560076',
   },
   phone: {
-    title: "Urgent Call",
-    number1: "+91 6362411428",
-    number2: "+91 9885414558"
+    title: 'Urgent Call',
+    number1: '+91 8886380746',
+    number2: '+91 6301804286',
   },
   email: {
-    title: "Email Address",
-    address: "hr@irasah.com",
-    website: "www.Irasah.com"
-  },
-  instagram: {
-    title: "Instagram",
-    profile: "Irasah_Innovations"
-  },
-  linkedin: {
-    title: "LinkedIn",
-    profile: "Irasah Innovations"
+    title: 'Email Address',
+    address: 'vemireddyomr@gmai.com',
+    website: 'www.maddy.com',
   },
   socialLinks: {
-    facebook: "https://www.instagram.com/irasah_innovations",
-    twitter: "https://www.instagram.com/irasah_innovations",
-    linkedin: "https://www.instagram.com/irasah_innovations",
-    instagram: "https://www.instagram.com/irasah_innovations"
+    whatsapp: 'https://wa.me/8886380746',
+    instagram: 'https://www.instagram.com/vemireddy_official',
+    linkedin: 'https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167',
+    gmail: 'mailto:vemireddyomr@gmail.com',
   },
-  companyName: "Irasah Innovations"
 };
 
 const contactDetailsSlice = createSlice({
