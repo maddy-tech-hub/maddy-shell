@@ -1,6 +1,7 @@
 import React from 'react';
 import { RootStateType } from '@src/redux/store';
 import { useSelector } from 'react-redux';
+import { useIntl } from 'react-intl';
 const MaddyCardSection = React.lazy(
   () => import('maddy_widget/MaddyCardSection')
 );
@@ -15,17 +16,18 @@ const Projects: React.FC = () => {
   const professionalProjects = projectList.filter(
     (project) => project.type === 'professional'
   );
+  const intl = useIntl();
   return (
-    <div className="projects-page" style={{ padding: '2.5rem' }}>
+    <div className="projects-page">
       <MaddyCardSection
-        title="Independent Solutions"
-        subtitle="Independent initiatives and personal contributions"
+        title={intl.formatMessage({ id: 'independentProjectTitle' })}
+        subtitle={intl.formatMessage({ id: 'independentProjectSubTitle' })}
         cardInfoList={personalProjects}
         borderColor="#ff9800"
       />
       <MaddyCardSection
-        title="Professional Projects"
-        subtitle="Impactful organizational contributions"
+        title={intl.formatMessage({ id: 'professionalProjectTitle' })}
+        subtitle={intl.formatMessage({ id: 'professionalProjectSubTitle' })}
         cardInfoList={professionalProjects}
       />
     </div>

@@ -3,5 +3,5 @@ import App from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
-console.log('omr : vemireddy login app Started');
+console.log('omr : vemireddy shell app mounted');
 root.render(<App />);

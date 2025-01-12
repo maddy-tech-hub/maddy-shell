@@ -1,15 +1,17 @@
 import React from 'react';
 import { experiences } from '@src/Services/cardList';
+import { useIntl } from 'react-intl';
 const MaddyCardSection = React.lazy(
   () => import('maddy_widget/MaddyCardSection')
 );
 
 const Experience: React.FC = () => {
+  const intl = useIntl();
   return (
-    <div className="experience-page" style={{ padding: '2.5rem' }}>
+    <div className="experience-page">
       <MaddyCardSection
-        title="Professional Experience"
-        subtitle="Building Scalable and Efficient Applications"
+        title={intl.formatMessage({ id: 'experienceTitle' })}
+        subtitle={intl.formatMessage({ id: 'experienceSubTitle' })}
         cardInfoList={experiences}
       />
     </div>

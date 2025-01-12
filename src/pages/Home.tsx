@@ -8,10 +8,10 @@ import profile from '../assets/profile.png';
 const Profile = React.lazy(() => import('maddy_widget/Profile'));
 
 const Home: React.FC = () => {
+  const intl = useIntl();
   const { siteTitle, socialLinks } = useSelector(
     (state: RootStateType) => state.contactDetailsSlice
   );
-  const intl = useIntl();
 
   const profileData = {
     profileImage: profile,
