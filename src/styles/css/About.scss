@@ -1,0 +1,80 @@
+@use "sass:color";
+
+$primary-color: #007bff;
+$text-color: #333;
+$background-color: #f9f9f9;
+$box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  color: $text-color;
+
+  section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: $background-color;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+
+    h2 {
+      font-size: 2rem;
+      color: $primary-color;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 10px;
+
+        strong {
+          color: $primary-color;
+        }
+      }
+    }
+
+    p {
+      line-height: 1.6;
+
+      em {
+        font-style: italic;
+        color: color.adjust($text-color, $lightness: -20%);
+      }
+    }
+  }
+
+  .intro {
+    h1 {
+      font-size: 2.5rem;
+      color: color.adjust($primary-color, $lightness: -10%);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .experience {
+    .experience-item {
+      h3 {
+        font-size: 1.5rem;
+        color: color.adjust($primary-color, $lightness: -15%);
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .projects {
+    h3 {
+      font-size: 1.5rem;
+      color: color.adjust($primary-color, $lightness: -15%);
+      margin-bottom: 10px;
+    }
+  }
+}
