@@ -59,9 +59,9 @@ const Contact: React.FC = () => {
         formFields={formFields}
         contactInfo={contactInfo}
         emailConfig={{
-          serviceId: process.env.REACT_APP_SERVICE_ID,
-          templateId: process.env.REACT_APP_TEMPLATE_ID,
-          userId: process.env.REACT_APP_USER_ID,
+          serviceId: 'service_za3sf2i',
+          templateId: 'template_b5prx1c',
+          userId: 'S70nsorCSd-jZcG93'
         }}
         externalApiUrl={process.env.REACT_APP_EXTERNAL_API_URL}
       />
