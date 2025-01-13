@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RouteConfig } from './interfaces/common';
 import { headerData, whatsappData } from './Services/api';
 import { routes } from './routes/config';
+import ScrollToTop from './components/Misc/ScrollToTop';
 
 const Header = React.lazy(() => import('maddy_widget/Header'));
 const Footer = React.lazy(() => import('maddy_widget/Footer'));
@@ -25,6 +26,7 @@ const AppRoutes: React.FC = () => {
   return (
     <>
       <Suspense fallback={<Loader text="Loading..." fullScreen={true} />}>
+        <ScrollToTop />
         <Header
           menuLinks={headerData.menuLinks}
           logoSrc={headerData.logoSrc}

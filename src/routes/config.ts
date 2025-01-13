@@ -26,6 +26,10 @@ export const routes = [
     Component: React.lazy(() => import('../pages/Projects')),
   },
   {
+    path: '/contact',
+    Component: React.lazy(() => import('../pages/Contact')),
+  },
+  {
     path: '/login',
     Component: React.lazy(() => import('maddy_login/LoginComponent')),
   },

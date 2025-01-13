@@ -30,7 +30,7 @@ export const headerData = {
 };
 
 export const whatsappData = {
-  phoneNumber: '1234567890',
+  phoneNumber: '8886380746',
   position: { bottom: 50, right: 30 },
   backgroundColor: '#25D366',
   iconColor: 'white',
