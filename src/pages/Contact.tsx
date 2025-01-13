@@ -1,144 +1,72 @@
-import React, { memo, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import React, { lazy } from "react";
+import { useSelector } from "react-redux";
+import { RootStateType } from "@src/redux/store";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
+
+const ContactWidget = lazy(() => import("maddy_widget/ContactWidget"));
 
 const Contact: React.FC = () => {
-  const [contacts, setContacts] = useState<any>([]);
+  const contactDetails = useSelector((state: RootStateType) => state.contactDetailsSlice);
+  const contactInfo = [
+    { 
+      label: contactDetails.location.label, 
+      value: contactDetails.location.value, 
+      icon: <FaMapMarkerAlt style={{ color: "red" }} /> 
+    },
+    { 
+      label: contactDetails.email.label, 
+      value: contactDetails.email.value, 
+      icon: <FaEnvelope style={{ color: "#D44638" }} /> 
+    },
+    { 
+      label: contactDetails.instagram.label, 
+      value: contactDetails.instagram.value, 
+      icon: <FaInstagram style={{ color: "#E1306C" }} /> 
+    },
+    { 
+      label: contactDetails.phone.label, 
+      value: (
+        <>
+          <p>{contactDetails.phone.number1}</p>
+          <p>{contactDetails.phone.number2}</p>
+        </>
+      ), 
+      icon: <FaPhoneAlt style={{ color: "green" }} /> 
+    },
+    { 
+      label: contactDetails.linkedIn.label, 
+      value: contactDetails.linkedIn.value, 
+      icon: <FaLinkedin style={{ color: "#0077B5" }} /> 
+    },
+  ];
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isDirty, isValid },
-  } = useForm({
-    mode: "onChange",
-  });
-
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data));
-    setContacts([data]);
-  };
-
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
+  const formFields = [
+    { id: "name", label: "Name", type: "text", placeholder: "Your Name", required: true },
+    { id: "email", label: "Email", type: "email", placeholder: "Your Email", required: true },
+    { id: "phone", label: "Phone", type: "tel", placeholder: "Your Phone Number", required: true },
+    { id: "message", label: "Message", type: "textarea", placeholder: "Your Message", required: true },
+  ];
 
   return (
-    <div>
-      <h1>Contact</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="firstname">Enter first name:</label>
-          <input
-            type="text"
-            {...register("firstname", {
-              required: "First Name is required",
-              minLength: {
-                value: 3,
-                message: "Min Length of First Name is 3",
-              },
-            })}
-          />
-          {errors.firstname && (
-            <div>
-              <small style={{ color: "red" }}>{errors.firstname.message}</small>
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="lastname">Enter last name:</label>
-          <input
-            type="text"
-            {...register("lastname", {
-              required: "Last Name is required",
-              minLength: {
-                value: 3,
-                message: "Min Length of Last Name is 3",
-              },
-            })}
-          />
-          {errors.lastname && (
-            <div>
-              <small style={{ color: "red" }}>{errors.lastname.message}</small>
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="age">Enter age:</label>
-          <input
-            type="number"
-            {...register("age", {
-              required: "Age is required",
-              min: {
-                value: 1,
-                message: "Age should be positive",
-              },
-            })}
-          />
-          {errors.age && (
-            <div>
-              <small style={{ color: "red" }}>{errors.age.message}</small>
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="mobilenumber">Enter mobile number:</label>
-          <input
-            type="text"
-            {...register("mobilenumber", {
-              required: "Mobile number is required",
-              minLength: {
-                value: 10,
-                message: "Mobile number must be 10 digits",
-              },
-              maxLength: {
-                value: 10,
-                message: "Mobile number must be 10 digits",
-              },
-              pattern: {
-                value: /^(\+\d{1,3}[- ]?)?\d{10}$/,
-                message: "Please enter a valid mobile number",
-              },
-            })}
-          />
-          {errors.mobilenumber && (
-            <div>
-              <small style={{ color: "red" }}>{errors.mobilenumber.message}</small>
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="email">Enter email:</label>
-          <input
-            type="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/,
-                message: "Please enter a valid email",
-              },
-            })}
-          />
-          {errors.email && (
-            <div>
-              <small style={{ color: "red" }}>{errors.email.message}</small>
-            </div>
-          )}
-        </div>
-
-        <br />
-        <input type="submit" value="Submit" disabled={!isDirty || !isValid} />
-      </form>
-
-      <br />
-      <Link to="/">
-        <button>Back to Home Page</button>
-      </Link>
+    <div className="parent-component">
+      <ContactWidget
+        formFields={formFields}
+        contactInfo={contactInfo}
+        emailConfig={{
+          serviceId: process.env.REACT_APP_SERVICE_ID,
+          templateId: process.env.REACT_APP_TEMPLATE_ID,
+          userId: process.env.REACT_APP_USER_ID,
+        }}
+        externalApiUrl={process.env.REACT_APP_EXTERNAL_API_URL}
+      />
     </div>
   );
 };
 
-export default memo(Contact);
+export default Contact;

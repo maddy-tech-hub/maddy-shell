@@ -41,7 +41,7 @@ const AppRoutes: React.FC = () => {
           ))}
         </Routes>
         <Footer
-          address={location.address}
+          address={location.value}
           logoSrc={headerData.logoSrc}
           socialLinks={socialLinks}
           linkSections={[]}

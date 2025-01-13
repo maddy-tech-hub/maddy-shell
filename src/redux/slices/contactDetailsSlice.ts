@@ -1,59 +1,70 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface ContactChunk {
+  label: string;
+  value: string;
+}
+
+interface PhoneDetails {
+  label: string;
+  number1: string;
+  number2: string;
+  whatsapp?: string;
+}
+
+interface SocialLinks {
+  whatsapp?: string;
+  instagram?: string;
+  linkedin?: string;
+  gmail?: string;
+}
 
 interface ContactDetailsState {
   siteTitle: string;
-  location: {
-    title: string;
-    address: string;
-  };
-  phone: {
-    title: string;
-    number1: string;
-    number2: string;
-    whatsapp?: string;
-  };
-  email: {
-    title: string;
-    address: string;
-    website: string;
-  };
-  socialLinks: {
-    whatsapp?: string;
-    instagram?: string;
-    linkedin?: string;
-    gmail?: string;
-  };
+  location: ContactChunk;
+  email: ContactChunk;
+  instagram: ContactChunk;
+  linkedIn: ContactChunk;
+  phone: PhoneDetails;
+  socialLinks: SocialLinks;
 }
 
 const initialState: ContactDetailsState = {
-  siteTitle: 'MaddyTech',
+  siteTitle: "MaddyTech",
   location: {
-    title: 'Our Location',
-    address: 'No 16, 18th Cross 6th Main, BTm 2nd Stage, Bangalore, 560076',
-  },
-  phone: {
-    title: 'Urgent Call',
-    number1: '+91 8886380746',
-    number2: '+91 6301804286',
+    label: "Our Location",
+    value: "No 16, 18th Cross 6th Main, BTM 2nd Stage, Bangalore, 560076",
   },
   email: {
-    title: 'Email Address',
-    address: 'vemireddyomr@gmai.com',
-    website: 'www.maddy.com',
+    label: "Email Address",
+    value: "vemireddyomr@gmail.com",
+  },
+  instagram: {
+    label: "Instagram",
+    value: "vemireddy_official",
+  },
+  linkedIn: {
+    label: "LinkedIn",
+    value: "Madhava Reddy Vemireddy",
+  },
+  phone: {
+    label: "Urgent Call",
+    number1: "+91 8886380746",
+    number2: "+91 6301804286",
   },
   socialLinks: {
-    whatsapp: 'https://wa.me/8886380746',
-    instagram: 'https://www.instagram.com/vemireddy_official',
-    linkedin: 'https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167',
-    gmail: 'mailto:vemireddyomr@gmail.com',
+    whatsapp: "https://wa.me/8886380746",
+    instagram: "https://www.instagram.com/vemireddy_official",
+    linkedin: "https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167",
+    gmail: "mailto:vemireddyomr@gmail.com",
   },
 };
 
 const contactDetailsSlice = createSlice({
-  name: 'contactDetails',
+  name: "contactDetails",
   initialState,
   reducers: {
-    setContactDetails: (state, action: PayloadAction<ContactDetailsState>) => {
+    setContactDetails: (state, action: PayloadAction<Partial<ContactDetailsState>>) => {
       return { ...state, ...action.payload };
     },
   },

@@ -5,6 +5,7 @@ export const quickLinks = [
   { label: 'Education', url: '/education' },
   { label: 'Experience', url: '/experience' },
   { label: 'Projects', url: '/projects' },
+  { label: 'Contact Me', url: '/contact' },
 ];
 
 export const modernDarkTheme = {
