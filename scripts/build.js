@@ -1,5 +1,5 @@
 const { execSync } = require('child_process');
-const environment = process.env.ENVIRONMENT || 'development';
+const environment = process.env.ENVIRONMENT || 'production';
 
 const env = {
   ...process.env,
