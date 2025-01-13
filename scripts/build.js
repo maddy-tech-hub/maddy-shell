@@ -11,3 +11,5 @@ const env = {
 const webpackCommand = `npx webpack --config webpack.config.js --mode ${environment}`;
 
 execSync(webpackCommand, { env, stdio: 'inherit' });
+console.log('Environment Variables Passed:', env);
+

@@ -22,6 +22,7 @@ const dotEnvFiles = [envPathLocal, basePathLocal, envPath].filter((file) => fs.e
 dotEnvFiles.forEach((file) => {
     dotenv.config({ path: file });
 });
+console.log('Loaded .env files:', dotEnvFiles);
 
 // Filtering Environment Variables (environment variables prefixed with REACT_APP_)
 const REACT_APP = /^REACT_APP_/i;
