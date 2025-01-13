@@ -33,6 +33,8 @@ const rawEnv = Object.keys(process.env)
         return env;
     }, {});
 
+console.log('rawEnv :', rawEnv);
+
 // Injecting Environment Variables (new webpack.DefinePlugin(envKeys);)
 const envKeys = Object.keys(rawEnv).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(rawEnv[next]);
