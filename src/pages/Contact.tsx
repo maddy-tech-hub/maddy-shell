@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
           templateId: 'template_b5prx1c',
           userId: 'S70nsorCSd-jZcG93'
         }}
-        externalApiUrl={process.env.REACT_APP_EXTERNAL_API_URL}
+        externalApiUrl={'https://maddyhub.onrender.com/api/Email/contact-form'}
       />
     </div>
   );
