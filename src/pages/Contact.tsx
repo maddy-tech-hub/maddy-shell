@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootStateType } from "@src/redux/store";
 import {
@@ -8,10 +8,12 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
+import Loader from "../components/Misc/Loader"
 
 const ContactWidget = lazy(() => import("maddy_widget/ContactWidget"));
 
 const Contact: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const contactDetails = useSelector((state: RootStateType) => state.contactDetailsSlice);
   const contactInfo = [
     { 
@@ -55,10 +57,12 @@ const Contact: React.FC = () => {
 
   return (
     <div className="parent-component">
+      {loading && <Loader text="Loading..." fullScreen={true} />}
       <ContactWidget
         formFields={formFields}
         contactInfo={contactInfo}
         externalApiUrl={'https://maddyhub.onrender.com/api/Email/contact-form'}
+        setLoading={setLoading}
       />
     </div>
   );
