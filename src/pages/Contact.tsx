@@ -58,11 +58,6 @@ const Contact: React.FC = () => {
       <ContactWidget
         formFields={formFields}
         contactInfo={contactInfo}
-{/*         emailConfig={{
-          serviceId: 'service_za3sf2i',
-          templateId: 'template_b5prx1c',
-          userId: 'S70nsorCSd-jZcG93'
-        }} */}
         externalApiUrl={'https://maddyhub.onrender.com/api/Email/contact-form'}
       />
     </div>
