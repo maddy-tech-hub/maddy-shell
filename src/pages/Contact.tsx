@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
   ];
 
   const formFields = [
-    { id: "name", label: "Name", type: "text", placeholder: "Your Name", required: true },
+    { id: "fullName", label: "Name", type: "text", placeholder: "Your Name", required: true },
     { id: "email", label: "Email", type: "email", placeholder: "Your Email", required: true },
     { id: "phone", label: "Phone", type: "tel", placeholder: "Your Phone Number", required: true },
     { id: "message", label: "Message", type: "textarea", placeholder: "Your Message", required: true },
