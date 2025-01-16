@@ -64,11 +64,11 @@ const initialState: ContactDetailsState = {
     number2: "+91 6301804286",
   },
   socialLinks: {
+    github: "https://github.com/Madhava-Reddy",
+    gmail: "mailto:vemireddyomr@gmail.com",
+    linkedin: "https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167",
     whatsapp: "https://wa.me/8886380746",
     instagram: "https://www.instagram.com/vemireddy_official",
-    linkedin: "https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167",
-    gmail: "mailto:vemireddyomr@gmail.com",
-    github: "https://github.com/Madhava-Reddy",
     snapchat: "https://snapchat.com/t/vqDce9B7",
   },
 };
