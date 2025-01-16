@@ -7,8 +7,9 @@ const messages: Record<string, Record<string, string>> = {
     bioTitle: 'Full Stack Developer',
     description:
       'I specialize in building responsive frontends with React and scalable backends with .NET C#. My focus is on delivering modern, efficient, and user-friendly web solutions.',
-    linkText: 'More About Me',
-    linkURL: '/about',
+    aboutLinkText: 'More About Me',
+    aboutLinkURL: '/about',
+    cvLinkText: 'Download CV',  
     skillTitle: 'Skills and Expertise',
     skillSubTitle: "Technologies and Tools I've Worked With",
     educationTitle: 'Educational Background',

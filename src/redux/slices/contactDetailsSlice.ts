@@ -12,12 +12,23 @@ interface PhoneDetails {
   whatsapp?: string;
 }
 
-interface SocialLinks {
+export interface SocialLinks {
   whatsapp?: string;
   instagram?: string;
   linkedin?: string;
   gmail?: string;
+  github?: string;
+  facebook?: string;
+  twitter?: string;
+  youtube?: string;
+  tiktok?: string;
+  pinterest?: string;
+  reddit?: string;
+  snapchat?: string;
+  discord?: string;
+  telegram?: string;
 }
+
 
 interface ContactDetailsState {
   siteTitle: string;
@@ -57,6 +68,8 @@ const initialState: ContactDetailsState = {
     instagram: "https://www.instagram.com/vemireddy_official",
     linkedin: "https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167",
     gmail: "mailto:vemireddyomr@gmail.com",
+    github: "https://github.com/Madhava-Reddy",
+    snapchat: "https://snapchat.com/t/vqDce9B7",
   },
 };
 
