@@ -53,17 +53,12 @@ module.exports = {
     },
     target: 'web',
     output: {
-        filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js',
+        filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-            inject: true,
-            scriptLoading: 'defer',
-        }),
+        new HtmlWebpackPlugin({ template: './public/index.html' }),
         new webpack.ProvidePlugin({ process: 'process/browser' }),
         isDevelopment && new webpack.HotModuleReplacementPlugin(),
         isDevelopment && new ReactRefreshWebpackPlugin({ overlay: false }),
@@ -116,9 +111,9 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg|pdf)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/[name].[hash][ext][query]',
+                  filename: 'assets/[name].[hash][ext][query]',
                 },
-            },
+              },
         ],
     },
 };
