@@ -7,6 +7,7 @@ import cv from '../assets/Madhava_Vemireddy.pdf';
 
 // Lazy load the Profile component
 const Profile = React.lazy(() => import('maddy_widget/Profile'));
+const Contact = React.lazy(() => import('../pages/Contact'));
 
 const Home: React.FC = () => {
   const intl = useIntl();
@@ -33,6 +34,7 @@ const Home: React.FC = () => {
   return (
     <div className="home-container">
       <Profile {...profileData} />
+      <Contact />
     </div>
   );
 };

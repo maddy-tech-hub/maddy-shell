@@ -60,16 +60,18 @@ const About: React.FC = () => {
         <h2>Projects</h2>
         <h3>Professional Projects</h3>
         <ul>
-          <li><strong>Retail IMS:</strong> Developed inventory management system using React and ASP.NET.</li>
-          <li><strong>HCC Loan Pay Off:</strong> Built APIs for loan payoff tools using ASP.NET Core.</li>
+          <li><strong>Vehicle Auction Platform:</strong> Enabled advanced vehicle search and dynamic filtering using ReactJS and .NET Core.</li>
+          <li><strong>HCC Loan Payoff Platform:</strong> Built REST APIs for loan management and responsive interfaces using ASP.NET Core.</li>
         </ul>
+
         <h3>Independent Projects</h3>
         <ul>
-          <li><strong>IRASAH:</strong> React-based front-end for a training institute with Email.js integration.</li>
-          <li><strong>Account Management API:</strong> Developed ASP.NET APIs for authentication and user management.</li>
+          <li><strong>React Micro-Frontend (MFE) Portfolio:</strong> Developed a comprehensive React-based MFE portfolio with features like user login/signup and reusable widgets.</li>
+          <li><strong>IRASAH:</strong> Created a responsive React front-end for a training institute with email form submissions using Email.js.</li>
         </ul>
         <Link to="/projects" className="action-link">View Projects</Link>
       </section>
+    
     </div>
   );
 };

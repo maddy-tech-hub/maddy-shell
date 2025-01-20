@@ -44,6 +44,8 @@ const AppRoutes: React.FC = () => {
           address={location.value}
           logoSrc={headerData.logoSrc}
           socialLinks={socialLinks}
+          companyName= {'Madhava Reddy Vemireddy'}
+          showFooterBottom= {true}
           linkSections={[]}
         />
         <WhatsAppWidget {...whatsappData} />
