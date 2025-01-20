@@ -9,42 +9,44 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import Loader from "../components/Misc/Loader"
+import { useIntl } from "react-intl";
 
 const ContactWidget = lazy(() => import("maddy_widget/ContactWidget"));
 
 const Contact: React.FC = () => {
+  const intl = useIntl();
   const [loading, setLoading] = useState(false);
   const contactDetails = useSelector((state: RootStateType) => state.contactDetailsSlice);
   const contactInfo = [
-    { 
-      label: contactDetails.location.label, 
-      value: contactDetails.location.value, 
-      icon: <FaMapMarkerAlt style={{ color: "red" }} /> 
+    {
+      label: contactDetails.location.label,
+      value: contactDetails.location.value,
+      icon: <FaMapMarkerAlt style={{ color: "red" }} />
     },
-    { 
-      label: contactDetails.email.label, 
-      value: contactDetails.email.value, 
-      icon: <FaEnvelope style={{ color: "#D44638" }} /> 
+    {
+      label: contactDetails.email.label,
+      value: contactDetails.email.value,
+      icon: <FaEnvelope style={{ color: "#D44638" }} />
     },
-    { 
-      label: contactDetails.instagram.label, 
-      value: contactDetails.instagram.value, 
-      icon: <FaInstagram style={{ color: "#E1306C" }} /> 
+    {
+      label: contactDetails.instagram.label,
+      value: contactDetails.instagram.value,
+      icon: <FaInstagram style={{ color: "#E1306C" }} />
     },
-    { 
-      label: contactDetails.phone.label, 
+    {
+      label: contactDetails.phone.label,
       value: (
         <>
           <p>{contactDetails.phone.number1}</p>
           <p>{contactDetails.phone.number2}</p>
         </>
-      ), 
-      icon: <FaPhoneAlt style={{ color: "green" }} /> 
+      ),
+      icon: <FaPhoneAlt style={{ color: "green" }} />
     },
-    { 
-      label: contactDetails.linkedIn.label, 
-      value: contactDetails.linkedIn.value, 
-      icon: <FaLinkedin style={{ color: "#0077B5" }} /> 
+    {
+      label: contactDetails.linkedIn.label,
+      value: contactDetails.linkedIn.value,
+      icon: <FaLinkedin style={{ color: "#0077B5" }} />
     },
   ];
 
@@ -59,6 +61,8 @@ const Contact: React.FC = () => {
     <div className="parent-component">
       {loading && <Loader text="Loading..." fullScreen={true} />}
       <ContactWidget
+        title={intl.formatMessage({ id: 'contactTitle' })}
+        submitTitle={intl.formatMessage({ id: 'buttonLabel' })}
         formFields={formFields}
         contactInfo={contactInfo}
         externalApiUrl={'https://maddyhub.onrender.com/api/Email/contact-form'}

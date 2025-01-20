@@ -20,7 +20,7 @@ const messages: Record<string, Record<string, string>> = {
     independentProjectSubTitle: 'Independent initiatives and personal contributions',
     professionalProjectTitle: 'Professional Projects',
     professionalProjectSubTitle: 'Impactful organizational contributions',
-    aboutTitle: 'Contact Me',
+    contactTitle: 'Contact Me',
     fullNameLabel: 'Your Full Name',
     emailLabel: 'Email Address',
     mobileLabel: 'Mobile Number',
@@ -49,7 +49,7 @@ const messages: Record<string, Record<string, string>> = {
     independentProjectSubTitle: 'Initiatives personnelles et contributions',
     professionalProjectTitle: 'Projets Professionnels',
     professionalProjectSubTitle: 'Contributions organisationnelles impactantes',
-    aboutTitle: 'Contactez-moi',
+    contactTitle: 'Contactez-moi',
     fullNameLabel: 'Votre Nom Complet',
     emailLabel: 'Adresse Email',
     mobileLabel: 'Numéro de Téléphone',
@@ -78,7 +78,7 @@ const messages: Record<string, Record<string, string>> = {
     independentProjectSubTitle: 'Iniciativas personales y contribuciones',
     professionalProjectTitle: 'Proyectos Profesionales',
     professionalProjectSubTitle: 'Contribuciones impactantes a la organización',
-    aboutTitle: 'Contáctame',
+    contactTitle: 'Contáctame',
     fullNameLabel: 'Tu Nombre Completo',
     emailLabel: 'Dirección de Correo',
     mobileLabel: 'Número de Teléfono',
@@ -91,3 +91,4 @@ const messages: Record<string, Record<string, string>> = {
 };
 
 export default messages;
+ 
