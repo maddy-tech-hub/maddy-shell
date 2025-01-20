@@ -7,12 +7,14 @@ import { RouteConfig } from './interfaces/common';
 import { headerData, whatsappData } from './Services/api';
 import { routes } from './routes/config';
 import ScrollToTop from './components/Misc/ScrollToTop';
+import { useIntl } from 'react-intl';
 
 const Header = React.lazy(() => import('maddy_widget/Header'));
 const Footer = React.lazy(() => import('maddy_widget/Footer'));
 const WhatsAppWidget = React.lazy(() => import('maddy_widget/WhatsAppWidget'));
 
 const AppRoutes: React.FC = () => {
+  const intl = useIntl();
   const navigate = useNavigate();
   const { location, socialLinks } = useSelector(
     (state: RootStateType) => state.contactDetailsSlice
@@ -44,7 +46,7 @@ const AppRoutes: React.FC = () => {
           address={location.value}
           logoSrc={headerData.logoSrc}
           socialLinks={socialLinks}
-          companyName= {'Madhava Reddy Vemireddy'}
+          companyName= {intl.formatMessage({ id: 'name' })}
           showFooterBottom= {true}
           linkSections={[]}
         />
