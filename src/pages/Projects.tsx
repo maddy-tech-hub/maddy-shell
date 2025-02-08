@@ -2,9 +2,7 @@ import React from 'react';
 import { RootStateType } from '@src/redux/store';
 import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
-const MaddyCardSection = React.lazy(
-  () => import('maddy_widget/MaddyCardSection')
-);
+const MaddyCardSection = React.lazy(() => import('maddy_mfe/MaddyCardSection'));
 
 const Projects: React.FC = () => {
   const projectList = useSelector(

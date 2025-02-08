@@ -9,9 +9,9 @@ import { routes } from './routes/config';
 import ScrollToTop from './components/Misc/ScrollToTop';
 import { useIntl } from 'react-intl';
 
-const Header = React.lazy(() => import('maddy_widget/Header'));
-const Footer = React.lazy(() => import('maddy_widget/Footer'));
-const WhatsAppWidget = React.lazy(() => import('maddy_widget/WhatsAppWidget'));
+const Header = React.lazy(() => import('maddy_mfe/Header'));
+const Footer = React.lazy(() => import('maddy_mfe/Footer'));
+const WhatsAppWidget = React.lazy(() => import('maddy_mfe/WhatsAppWidget'));
 
 const AppRoutes: React.FC = () => {
   const intl = useIntl();
@@ -46,8 +46,8 @@ const AppRoutes: React.FC = () => {
           address={location.value}
           logoSrc={headerData.logoSrc}
           socialLinks={socialLinks}
-          companyName= {intl.formatMessage({ id: 'name' })}
-          showFooterBottom= {true}
+          companyName={intl.formatMessage({ id: 'name' })}
+          showFooterBottom={true}
           linkSections={[]}
         />
         <WhatsAppWidget {...whatsappData} />

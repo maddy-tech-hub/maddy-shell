@@ -17,7 +17,8 @@ const messages: Record<string, Record<string, string>> = {
     experienceTitle: 'Professional Experience',
     experienceSubTitle: 'Building Scalable and Efficient Applications',
     independentProjectTitle: 'Independent Solutions',
-    independentProjectSubTitle: 'Independent initiatives and personal contributions',
+    independentProjectSubTitle:
+      'Independent initiatives and personal contributions',
     professionalProjectTitle: 'Professional Projects',
     professionalProjectSubTitle: 'Impactful organizational contributions',
     contactTitle: 'Contact Me',
@@ -35,7 +36,7 @@ const messages: Record<string, Record<string, string>> = {
     name: 'Madhava Reddy Vemireddy',
     bioTitle: 'Développeur Full Stack',
     description:
-      "Je me spécialise dans la création de frontends réactifs avec React et de backends évolutifs avec .NET C#. Mon objectif est de fournir des solutions web modernes, efficaces et conviviales.",
+      'Je me spécialise dans la création de frontends réactifs avec React et de backends évolutifs avec .NET C#. Mon objectif est de fournir des solutions web modernes, efficaces et conviviales.',
     aboutLinkText: 'À propos de moi',
     aboutLinkURL: '/a-propos',
     cvLinkText: 'Voir le CV',
@@ -87,8 +88,6 @@ const messages: Record<string, Record<string, string>> = {
     successMessageTitle: '¡Gracias por elegirnos!',
     successMessage: 'Nuestro equipo se pondrá en contacto contigo pronto.',
   },
-
 };
 
 export default messages;
- 

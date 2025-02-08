@@ -9,8 +9,8 @@ module.exports = {
             filename: 'remoteEntry.js',
             exposes: {},             
             remotes: {
-                maddy_login: "maddy_login@http://maddy-login.s3-website.ap-south-1.amazonaws.com/remoteEntry.js",
-                maddy_widget: "maddy_widget@http://maddy-widgets.s3-website.ap-south-1.amazonaws.com/remoteEntry.js",
+                maddy_login: "maddy_login@https://mfe-login.netlify.app//remoteEntry.js",
+                maddy_mfe: "maddy_mfe@https://mfe-components.netlify.app//remoteEntry.js",
               },
             shared: {
                 ...deps,

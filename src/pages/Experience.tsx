@@ -1,9 +1,7 @@
 import React from 'react';
 import { experiences } from '@src/Services/cardList';
 import { useIntl } from 'react-intl';
-const MaddyCardSection = React.lazy(
-  () => import('maddy_widget/MaddyCardSection')
-);
+const MaddyCardSection = React.lazy(() => import('maddy_mfe/MaddyCardSection'));
 
 const Experience: React.FC = () => {
   const intl = useIntl();

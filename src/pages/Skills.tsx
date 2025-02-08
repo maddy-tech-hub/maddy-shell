@@ -4,9 +4,7 @@ import '../styles/css/SkillsComponent.scss';
 import { skillsInfo } from '@src/Services/cardList';
 import { useIntl } from 'react-intl';
 
-const MaddyCardSection = React.lazy(
-  () => import('maddy_widget/MaddyCardSection')
-);
+const MaddyCardSection = React.lazy(() => import('maddy_mfe/MaddyCardSection'));
 
 const SkillsComponent: React.FC = () => {
   const intl = useIntl();

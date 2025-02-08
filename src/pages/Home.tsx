@@ -6,7 +6,7 @@ import profile from '../assets/profile.png';
 import cv from '../assets/Madhava_Vemireddy.pdf';
 
 // Lazy load the Profile component
-const Profile = React.lazy(() => import('maddy_widget/Profile'));
+const Profile = React.lazy(() => import('maddy_mfe/Profile'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 
 const Home: React.FC = () => {

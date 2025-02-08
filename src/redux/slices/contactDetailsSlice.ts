@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ContactChunk {
   label: string;
@@ -29,7 +29,6 @@ export interface SocialLinks {
   telegram?: string;
 }
 
-
 interface ContactDetailsState {
   siteTitle: string;
   location: ContactChunk;
@@ -41,43 +40,46 @@ interface ContactDetailsState {
 }
 
 const initialState: ContactDetailsState = {
-  siteTitle: "MaddyTech",
+  siteTitle: 'MaddyTech',
   location: {
-    label: "Our Location",
-    value: "No 16, 18th Cross 6th Main, BTM 2nd Stage, Bangalore, 560076",
+    label: 'Our Location',
+    value: 'No 16, 18th Cross 6th Main, BTM 2nd Stage, Bangalore, 560076',
   },
   email: {
-    label: "Email Address",
-    value: "vemireddyomr@gmail.com",
+    label: 'Email Address',
+    value: 'vemireddyomr@gmail.com',
   },
   instagram: {
-    label: "Instagram",
-    value: "vemireddy_official",
+    label: 'Instagram',
+    value: 'vemireddy_official',
   },
   linkedIn: {
-    label: "LinkedIn",
-    value: "Madhava Reddy Vemireddy",
+    label: 'LinkedIn',
+    value: 'Madhava Reddy Vemireddy',
   },
   phone: {
-    label: "Urgent Call",
-    number1: "+91 8886380746",
-    number2: "+91 6301804286",
+    label: 'Urgent Call',
+    number1: '+91 8886380746',
+    number2: '+91 6301804286',
   },
   socialLinks: {
-    github: "https://github.com/Madhava-Reddy",
-    gmail: "mailto:vemireddyomr@gmail.com",
-    linkedin: "https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167",
-    whatsapp: "https://wa.me/8886380746",
-    instagram: "https://www.instagram.com/vemireddy_official",
-    snapchat: "https://snapchat.com/t/vqDce9B7",
+    github: 'https://github.com/Madhava-Reddy',
+    gmail: 'mailto:vemireddyomr@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167',
+    whatsapp: 'https://wa.me/8886380746',
+    instagram: 'https://www.instagram.com/vemireddy_official',
+    snapchat: 'https://snapchat.com/t/vqDce9B7',
   },
 };
 
 const contactDetailsSlice = createSlice({
-  name: "contactDetails",
+  name: 'contactDetails',
   initialState,
   reducers: {
-    setContactDetails: (state, action: PayloadAction<Partial<ContactDetailsState>>) => {
+    setContactDetails: (
+      state,
+      action: PayloadAction<Partial<ContactDetailsState>>
+    ) => {
       return { ...state, ...action.payload };
     },
   },

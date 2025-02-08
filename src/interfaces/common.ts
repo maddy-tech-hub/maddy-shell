@@ -14,7 +14,6 @@ export interface RouteConfig {
   Component: React.LazyExoticComponent<React.FC>;
 }
 
-
 // Define initial state
 /*const initialState: { projects: cardInfo[] } = {
   projects: [
