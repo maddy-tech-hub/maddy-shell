@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
         submitTitle={intl.formatMessage({ id: 'buttonLabel' })}
         formFields={formFields}
         contactInfo={contactInfo}
-        externalApiUrl={'https://maddyhub.onrender.com/api/Email/contact-form'}
+        externalApiUrl={'https://notifications-jjss.onrender.com/api/email/send-contact-email'}
         setLoading={setLoading}
       />
     </div>
