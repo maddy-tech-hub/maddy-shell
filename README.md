@@ -1,8 +1,23 @@
 # Complete Web Development Guide
 
-## **Introduction to Web Development**
+## Introduction to Web Development
 
-Before diving into React, it’s crucial to understand fundamental web technologies.
+Before learning React, understanding core web technologies is essential.
+
+### Core Web Technologies
+
+- **HTML (HyperText Markup Language)**  
+  Defines the structure of web pages using elements like headings, paragraphs, images, and links.
+
+- **CSS (Cascading Style Sheets)**  
+  Styles web pages, making them visually appealing and responsive.
+
+- **JavaScript**  
+  Adds interactivity, handles user input, fetches data, and modifies the DOM.
+
+With a strong foundation in these, we move to **React**, a library for building modern web applications with a component-based approach.
+
+---
 
 ## HTML (HyperText Markup Language)
 
