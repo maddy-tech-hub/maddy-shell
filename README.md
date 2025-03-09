@@ -1145,3 +1145,7 @@ new ModuleFederationPlugin({
 ```
 
 ---
+---
+**Author:** Madhava Reddy Vemireddy  
+**Website:** [maddytech.rf.gd](https://maddytech.rf.gd/)  
+
