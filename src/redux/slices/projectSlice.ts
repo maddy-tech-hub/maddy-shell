@@ -34,6 +34,20 @@ const initialState: { projects: cardInfo[] } = {
       type: 'personal',
     },
     {
+      title: 'Retail Inventory Management System (Retail IMS) Appraisals',
+      subTitle: 'Vehicle Appraisal and Inventory System for Dealerships',
+      details: [
+        ' Objective: Enabled sellers to receive quotes, manage appraisals, and conduct vehicle sales via auctions.',
+        ' Appraisal Module: Implemented workflows where sellers accept, reject, or auction price quotes from dealerships.',
+        ' Auction Workflow: Designed 45-day expiration logic for unsold vehicles with seamless transitions to auction.',
+        ' Inventory: Built management tools for dealerships to track vehicles, initiate auctions, and handle high-bid sales.',
+        ' Frontend: Created dynamic ReactJS components for quote management, appraisal status, and auction tracking.',
+        ' Backend: Developed REST APIs in .NET Core for dealership communications and bid tracking.',
+        ' Technologies: ReactJS, Redux, .NET Core, Entity Framework, PostgreSQL, AWS RDS.',
+      ],
+      type: 'professional',
+    },
+    {
       title: 'Vehicle Auction Platform',
       subTitle: 'Project for Automotive Financial Companies',
       details: [
@@ -55,7 +69,7 @@ const initialState: { projects: cardInfo[] } = {
         ' Technologies: ReactJS, Redux, CSS Grid, .NET Core, Entity Framework, PostgreSQL, AWS RDS.',
       ],
       type: 'professional',
-    },
+    }
   ],
 };
 // Create the slice

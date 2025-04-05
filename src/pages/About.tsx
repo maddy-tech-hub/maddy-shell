@@ -67,27 +67,17 @@ const About: React.FC = () => {
 
       <section className="experience card">
         <h2>Experience</h2>
-        <div className="experience-item">
+        <>
           <h3>Software Developer</h3>
           <p>
             Amiti Software Technologies Pvt. Ltd., Bengaluru
             <br />
             <em>June 2021 – Present</em>
           </p>
-          <ul>
-            <li>
-              Developed reusable UI components using ReactJS and TypeScript.
-            </li>
-            <li>Designed and integrated REST APIs with ASP.NET Core.</li>
-            <li>Built responsive layouts using CSS Grid and Flexbox.</li>
-            <li>
-              Contributed to code reviews and improved team coding standards.
-            </li>
-          </ul>
           <Link to="/experience" className="action-link">
             View Experience
           </Link>
-        </div>
+        </>
       </section>
 
       <section className="projects card">
@@ -95,12 +85,13 @@ const About: React.FC = () => {
         <h3>Professional Projects</h3>
         <ul>
           <li>
-            <strong>Vehicle Auction Platform:</strong> Enabled advanced vehicle
-            search and dynamic filtering using ReactJS and .NET Core.
+            <strong>Retail IMS Appraisals:</strong> Developed a vehicle appraisal and inventory system for dealerships using ReactJS and .NET Core.
           </li>
           <li>
-            <strong>HCC Loan Payoff Platform:</strong> Built REST APIs for loan
-            management and responsive interfaces using ASP.NET Core.
+            <strong>Vehicle Auction Platform:</strong> Built dynamic search and bidding workflows for automotive auctions with ReactJS and .NET Core.
+          </li>
+          <li>
+            <strong>HCC Loan Payoff Platform:</strong> Created APIs and responsive UI for loan management at Hyundai Capital Canada using ASP.NET Core and ReactJS.
           </li>
         </ul>
 
