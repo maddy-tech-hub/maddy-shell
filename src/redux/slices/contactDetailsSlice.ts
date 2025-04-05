@@ -63,7 +63,7 @@ const initialState: ContactDetailsState = {
     number2: '+91 6301804286',
   },
   socialLinks: {
-    github: 'https://github.com/Madhava-Reddy',
+    github: 'https://github.com/maddy-tech-hub',
     gmail: 'mailto:vemireddyomr@gmail.com',
     linkedin: 'https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167',
     whatsapp: 'https://wa.me/8886380746',
