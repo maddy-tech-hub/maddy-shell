@@ -1,3 +1,4 @@
+import profile from '../assets/MT_NEW.png';
 export const quickLinks = [
   { label: 'Home', url: '/' },
   { label: 'About', url: '/about' },
@@ -23,7 +24,7 @@ export const modernDarkTheme = {
 
 export const headerData = {
   menuLinks: quickLinks,
-  logoSrc: '',
+  logoSrc: profile,
   menuOpen: false,
   setMenuOpen: (value: boolean) => {},
   onLoginClick: () => console.log('Login Clicked'),
