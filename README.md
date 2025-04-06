@@ -985,33 +985,45 @@ React Hooks allow functional components to manage state and side effects without
    const theme = useContext(ThemeContext);
    ```
 
-4. **`useReducer`**: Managing complex state logic.
-   ```tsx
-   import React, { useReducer } from 'react'
+### `useReducer`: Managing Complex State Logic in React
 
-function counterReducer (state:any, action:any)  {
+The `useReducer` hook is a powerful tool for managing state in React, especially when the state logic becomes complex. It works similarly to `useState`, but with a reducer function for more complex state transitions.
+
+#### Example:
+
+```tsx
+import React, { useReducer } from 'react';
+
+// Reducer function to handle state changes
+function counterReducer(state: { count: number }, action: { type: string }) {
   switch (action.type) {
     case 'inc':
       return { count: state.count + 1 };
     case 'dec':
       return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
     default:
-      return { count: 0 }
+      return state;
   }
 }
 
 function Counter() {
-  const [state, dispatch] = useReducer(counterReducer, { count: 0 })
+  // Using useReducer for state management
+  const [state, dispatch] = useReducer(counterReducer, { count: 0 });
+
   return (
     <>
-      <h1> Count : {state.count}</h1>
+      <h1>Count: {state.count}</h1>
       <button onClick={() => dispatch({ type: 'inc' })}>Increment</button>
-      <button onClick={() => dispatch({ type: 'dec' })}>decrement</button>
+      <button onClick={() => dispatch({ type: 'dec' })}>Decrement</button>
       <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
     </>
-  )
+  );
 }
-   ```
+
+export default Counter;
+```
 
 5. **`useMemo` & `useCallback`**: Optimizing performance.
    - `useMemo` memoizes a computed value to prevent unnecessary recalculations.
