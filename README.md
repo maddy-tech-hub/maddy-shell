@@ -710,14 +710,14 @@ user.greet();
 ```
 ## 📐 6. Destructuring
 
-### ✅ Object Destructuring
+### Object Destructuring
 
 ```js
 const user = { name: "Tom", age: 28 };
 const { name, age } = user;
 console.log(name, age); // "Tom", 28
 ```
-### ✅ Array Destructuring
+### Array Destructuring
 ```js
 const [a, b] = [1, 2];
 console.log(a, b); // 1, 2
