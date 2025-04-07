@@ -613,7 +613,7 @@ This section dives deep into some of the most useful and frequently asked JavaSc
 
 A **closure** is a function that retains access to its **lexical scope** (its surrounding environment) even after the outer function has finished executing.
 
-### ✅ Real Example
+### Real Example
 
 ```js
 function outer() {
@@ -696,7 +696,7 @@ const obj = {
 };
 obj.greet(); // Alice
 ```
-### ✅ Arrow Function Use Case
+### Arrow Function Use Case
 ```js
 const user = {
   name: "Bob",
@@ -1476,7 +1476,7 @@ function UsersList() {
 
 export default UsersList;
 ```
-### ✅ **How it works (Axios):**
+### **How it works (Axios):**
 
 - **Axios** is a promise-based HTTP client for the browser and Node.js.
 - When the component mounts (`useEffect` with an empty dependency array `[]`), the `axios.get(...)` function is triggered.
@@ -1558,7 +1558,7 @@ function UsersListFetch() {
 
 export default UsersListFetch;
 ```
-### ✅ **How it works (Fetch):**
+### **How it works (Fetch):**
 
 - `fetch()` is a built-in browser API used to make HTTP requests.
 - It returns a Promise that resolves to a `Response` object.
@@ -1650,7 +1650,7 @@ Micro Frontends allow breaking a monolithic frontend into smaller, independently
 
 Module Federation is a feature in Webpack 5 that allows one application to **expose** or **consume** modules from another at runtime — perfect for building micro frontends.
 
-#### ✅ **Basic Usage Example (Host/Remote)**
+#### **Basic Usage Example (Host/Remote)**
 
 ```js
 // webpack.config.js in remote app (App1)
@@ -1672,7 +1672,7 @@ new ModuleFederationPlugin({
 });
 
 ```
-### ✅ How It Works
+### How It Works
 
 Module Federation enables multiple Webpack builds to work together. Each build acts as either a **host** (which consumes modules) or a **remote** (which exposes modules).
 
@@ -1683,7 +1683,7 @@ This is ideal for **Micro Frontends**, where different teams or modules can be d
 
 ---
 
-### ✅ Terms Breakdown
+### Terms Breakdown
 
 | Term         | Description                                                                 |
 |--------------|-----------------------------------------------------------------------------|
