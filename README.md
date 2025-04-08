@@ -149,15 +149,66 @@ Every HTML document follows a basic structure:
 
 ---
 
-## **5. Semantic HTML**
+## 5. Semantic HTML 🏷️
 
-Semantic elements improve accessibility and SEO.
+Semantic HTML means using HTML tags that describe their meaning — not just their appearance.
+
+Instead of using `<div>`s everywhere, use **semantic elements** like:
+
+- `<header>` – Top section (logo, title, nav)
+- `<nav>` – Navigation links
+- `<main>` – Main page content
+- `<section>` – Logical group of content
+- `<article>` – A full piece of content (blog post, news)
+- `<aside>` – Sidebar or extra info
+- `<footer>` – Bottom of the page (contact, copyright)
+
+### 💡 Why It Matters:
+
+✅ **Better SEO(Search Engine Optimization)** – Search engines understand your content  
+✅ **Better Accessibility** – Screen readers can navigate easily  
+✅ **Cleaner Code** – Easier to read and maintain  
+
+---
+
+### 🧪 Real-World Example: A Simple Blog Page
+
 ```html
-<header>Site Header</header>
-<nav>Main Navigation</nav>
-<section>Main Content</section>
-<article>Blog Post</article>
-<footer>Site Footer</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Blog</title>
+</head>
+<body>
+
+  <header>
+    <h1>📝 My Awesome Blog</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <article>
+        <h2>Post Title</h2>
+        <p>This is my first blog post using semantic HTML!</p>
+      </article>
+    </section>
+    
+    <aside>
+      <h3>About Me</h3>
+      <p>I'm a web developer sharing my journey.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 My Blog. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
 ```
 
 ---
@@ -180,14 +231,35 @@ Semantic elements improve accessibility and SEO.
 ```
 
 ### **6.2 Canvas for Drawing**
+Draw graphics (games, charts, etc.) with JavaScript.
 ```html
 <canvas id="myCanvas" width="200" height="100"></canvas>
+```
+```js
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.fillRect(10, 10, 150, 75);
 ```
 
 ### **6.3 HTML5 Forms Enhancements**
 - `required` attribute for mandatory fields
 - `pattern` for input validation
 - `placeholder` for better user experience
+
+### 6.4 Geolocation API
+- Get user’s location (with permission):
+```js
+navigator.geolocation.getCurrentPosition((position) => {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+```
+
+### 6.5 Web Workers
+```js
+const worker = new Worker("worker.js");
+worker.postMessage("start");
+```
 
 ---
 
@@ -555,16 +627,33 @@ const name = "Alice";
 console.log(`Hello, ${name}!`);
 ```
 
-### **6.4 Promises & Async/Await**
+### 6.4 Promises & Async/Await
+
+#### 📦 What is a Promise?
+
+A **Promise** is an object representing the eventual completion or failure of an asynchronous operation. It can be in one of three states:
+
+- **Pending** – initial state, neither fulfilled nor rejected.
+- **Fulfilled** – operation completed successfully.
+- **Rejected** – operation failed.
+
+---
+
+### Async/Await Example
+
+Using `async` and `await` makes it easier to work with Promises in a readable way.
+
 ```js
 const fetchData = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await response.json();
   console.log(data);
 };
+
 fetchData();
 ```
-
+- async functions always return a Promise.
+- await pauses the execution until the Promise is resolved.
 ---
 
 ## **7. Object-Oriented Programming in JavaScript**
@@ -606,107 +695,268 @@ This section dives deep into some of the most useful and frequently asked JavaSc
 
 ---
 
-## 🔁 1. Array Methods Mastery
-![image](https://github.com/user-attachments/assets/028dbedd-eea8-40bf-ad50-c4b72a4e8f34)
+## 1. Array Methods Mastery
+![image](https://github.com/user-attachments/assets/10d30b84-c826-467a-aea6-35ba133a6119)
 
-## 🔒 2. Closures
 
-A **closure** is a function that retains access to its **lexical scope** (its surrounding environment) even after the outer function has finished executing.
+## 🔐 2. Closures
 
-### Real Example
+### 👉 What is a Closure?
+
+A **closure** is a function that **remembers variables from its outer scope**, even after the outer function has finished running.
+
+In simple terms:  
+> **"A function bundled with its surrounding variables."**
+
+---
+
+### ✨ Why are Closures Powerful?
+
+Closures let you:
+- Keep **data private** (like private variables)
+- Build **functions that remember state**
+- Use **React hooks**, **event listeners**, and **async logic** effectively
+
+---
+
+### Simple Example
 
 ```js
 function outer() {
-  let counter = 0;
+  let count = 0;
+
   return function inner() {
-    counter++;
-    console.log(counter);
+    count++;
+    console.log("Count:", count);
   };
 }
 
-const count = outer();
-count(); // 1
-count(); // 2
+const counter = outer();
+counter(); // Count: 1
+counter(); // Count: 2
 ```
-- `inner` function "closes over" the `counter` variable.
-- Used in **React hooks**, **event handlers**, and more.
-
 ---
 
 ## 📦 3. Hoisting
 
-### 🧠 Concept:
-- Variables declared with `var` are **hoisted**, but initialized with `undefined`.
-- Functions are hoisted **entirely**.
+### What is Hoisting?
+Hoisting is JavaScript's default behavior of moving **declarations** to the top of their scope (not the values!).
 
-### 🧪 Example:
+### 📌 How It Works
+
+- ✅ `var` declarations are **hoisted** and initialized to `undefined`
+- 🚫 `let` and `const` are hoisted too but **not initialized** → Temporal Dead Zone (TDZ)
+- ✅ Function **declarations** are hoisted completely
+- 🚫 Function **expressions** are NOT hoisted
+
+#### 🔹 `var` is hoisted and initialized with `undefined`
 
 ```js
-console.log(a); // undefined
+console.log(a); // 👉 undefined
+var a = 10;
+
+---
+- What actually happens behind the scenes:
+```js
+var a;          // 💡 Hoisted to the top and initialized with undefined
+console.log(a); // 👉 Prints undefined
+a = 10;         // ✅ Assigned later at runtime
+```
+ 
+#### let and const are hoisted but not initialized
+  ```js
+  console.log(b); // ❌ ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+
+console.log(c); // ❌ ReferenceError
+const c = 30;
+```
+** Behind the scenes:**
+```
+// Temporal Dead Zone (TDZ)
+let b;    // 🧨 Hoisted, but not initialized
+const c;  // 🧨 Hoisted, but not initialized
+
+// ❌ Accessing `b` or `c` before this point will throw ReferenceError
+```
+
+#### 🔹 `function` declarations are **fully hoisted**
+
+```js
+sayHi(); // ✅ Works perfectly
+function sayHi() {
+  console.log("Hello from hoisted function!");
+}
+```
+
+✅ The entire function is hoisted — both the name and the body.
+
+---
+
+**💡 Behind the Scenes:**
+
+```js
+// Function declaration is hoisted completely
+function sayHi() {
+  console.log("Hello from hoisted function!");
+}
+
+sayHi(); // 👉 Can be safely called here
+```
+#### 🔸 But function expressions are NOT hoisted like declarations
+
+```js
+greet(); // ❌ TypeError: greet is not a function
+var greet = function () {
+  console.log("Hi from function expression!");
+};
+```
+
+**Behind the scenes:**
+```js
+var greet;       // ✅ `var` is hoisted and initialized with undefined
+greet();         // ❌ Error because `greet` is undefined at this point
+greet = function () {
+  console.log("Hi from function expression!");
+};
+```
+
+## 📊 Summary Table – Hoisting of `var`, `let`, `const`, and `function`
+
+| Keyword     | Hoisted | Initialized | Access Before Declaration       | Notes                                      |
+|-------------|---------|-------------|----------------------------------|--------------------------------------------|
+| `var`       | ✅ Yes  | ✅ `undefined` | ✅ Allowed (prints `undefined`)   | Can be redeclared and updated              |
+| `let`       | ✅ Yes  | ❌ No        | ❌ ReferenceError (TDZ)          | Block-scoped, can't be used before init    |
+| `const`     | ✅ Yes  | ❌ No        | ❌ ReferenceError (TDZ)          | Block-scoped, must be initialized          |
+| `function`  | ✅ Yes  | ✅ Yes       | ✅ Allowed (fully hoisted)       | Function declarations are fully hoisted    |
+
+> 🧠 **TDZ** = Temporal Dead Zone – the time between hoisting and initialization.
+
+
+### 🧪 Code Example:
+
+```js
+console.log(a); // undefined (var is hoisted but not initialized)
 var a = 5;
 
-hoisted(); // works
+hoisted(); // ✅ Works (function declaration is hoisted)
 function hoisted() {
   console.log("Hoisted Function");
 }
-```
-- `let` and `const` are hoisted but not initialized (temporal dead zone).
 
+notHoisted(); // ❌ Error: notHoisted is not a function
+var notHoisted = function () {
+  console.log("This won't work!");
+};
 
 ## 🧠 4. Scope and Lexical Environment
 
-JavaScript has:
+JavaScript manages variables using **scope**, which defines where variables are accessible. It also uses a concept called **lexical environment**, which is created during code compilation.
 
-- Global Scope  
-- Function Scope  
-- Block Scope (with `let` and `const`)
+---
 
-### 🧪 Example:
+### 🔍 Types of Scope in JavaScript
+
+| Scope Type       | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| 🌍 Global Scope   | Declared outside all functions – accessible anywhere                       |
+| 🧭 Function Scope | Variables declared with `var` inside a function – accessible only there     |
+| 🧱 Block Scope    | Variables declared with `let` or `const` in `{}` – accessible only inside   |
+
+---
+
+### 🧪 Classic Lexical Scope Example
 
 ```js
 let a = 10;
 
 function outer() {
   let a = 20;
+
   function inner() {
-    console.log(a); // 20
+    console.log(a); // 👉 20 – Looks for `a` in its outer (lexical) scope
   }
+
   inner();
 }
 outer();
----
-Inner functions can access outer variables due to lexical scoping.
 ```
+- inner() has access to variables from outer() because of lexical scoping — it remembers the environment in which it was defined, not where it was called
+
+
+####  Example: Block Scope with let and const
+if (true) {
+  let blockScoped = "I'm inside a block!";
+  const alsoBlockScoped = "Me too!";
+  console.log(blockScoped);       // ✅ Works
+}
+
+console.log(blockScoped); // ❌ ReferenceError
+```
+- let and const are block-scoped, meaning they can't be accessed outside the block {}.
+
+####  Lexical Environment = Scope + Variable Environment
+Every time a function is created, a lexical environment is attached to it:
+- The function knows where it was declared.
+- That surrounding environment becomes part of its closure.
+
 ## 🌀 5. The `this` Keyword
 
-### 🔍 How `this` is determined:
+### 🧠 Definition:
+> In JavaScript, `this` refers to the **object that is currently executing the function**.  
+Its value depends on **how the function is called**.
 
-- In a **method**: refers to the object.
-- In a **function** (non-strict mode): refers to `window`.
-- In **arrow functions**: takes `this` from enclosing scope.
+---
 
-### 🧪 Example:
+### 📌 How `this` behaves:
 
-```js
-const obj = {
-  name: "Alice",
-  greet() {
-    console.log(this.name);
-  }
-};
-obj.greet(); // Alice
-```
-### Arrow Function Use Case
+| Context                  | What `this` refers to                       |
+|--------------------------|---------------------------------------------|
+| In a method              | The object that owns the method             |
+| In a regular function    | `undefined` (in strict) or `window` (non-strict) |
+| In arrow functions       | Inherits `this` from the outer (lexical) scope |
+| In constructor functions | The newly created instance                  |
+
+---
+
+### 🧪 Real-Time Example: Method + Constructor Function in One
+
 ```js
 const user = {
-  name: "Bob",
-  greet: function() {
+  name: "Madhava",
+
+  // Method: `this` refers to user object
+  omr() {
+    console.log("👋 Hi, I'm", this.name); // 👉 Madhava
+
+    // ✅ Arrow function inherits `this`
+    const showWelcome = () => {
+      console.log("✅ Welcome,", this.name); // 👉 Madhava
+    };
+    showWelcome();
+
+    // ❌ Regular function loses `this`
+    function wrongContext() {
+      console.log("❌ Who am I?", this.name); // 👉 undefined (or window.name)
+    }
+    wrongContext();
+
+    // ⏳ setTimeout with arrow function keeps `this`
     setTimeout(() => {
-      console.log(this.name); // "Bob", not window
+      console.log("⏳ Still me after delay:", this.name); // 👉 Madhava
     }, 1000);
   }
 };
-user.greet();
+
+user.omr();
+
+// 🧱 Constructor Function to create a new user
+function User(name) {
+  this.name = name;
+  console.log("🧱 Constructor Name:", this.name); // 👉 New object context
+}
+
+const newUser = new User("Reddy"); // 🧱 Constructor Name: Reddy
 ```
 ## 📐 6. Destructuring
 
