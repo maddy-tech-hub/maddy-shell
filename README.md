@@ -1028,23 +1028,37 @@ console.log(value2); // 0 (not null or undefined)
 ```
 #### Use ?? instead of || when you want to allow false, 0, or '' as valid values.
 
-## 🧪 9. typeof vs instanceof
+## 🧪 9. `typeof` vs `instanceof`
 
-### 🔹 typeof
-Used to check **primitive** types.
+### 🔹 `typeof`
+Used to check **primitive types** or built-in types like `function`, `undefined`, etc.
 
 ```js
-typeof "hello";      // "string"
-typeof 123;          // "number"
-typeof true;         // "boolean"
-typeof undefined;    // "undefined"
-typeof null;         // "object" (quirk in JavaScript)
-typeof {};           // "object"
-typeof [];           // "object"
-typeof function(){}; // "function"
+typeof "hello";       // "string"
+typeof 123;           // "number"
+typeof true;          // "boolean"
+typeof undefined;     // "undefined"
+typeof null;          // "object" (quirk in JavaScript)
+typeof {};            // "object"
+typeof [];            // "object"
+typeof function() {}; // "function"
 ```
-#### ℹ️ typeof null returns "object" due to legacy behavior.
+### 🔸 `instanceof`
+Used to check whether **an object is an instance of a constructor or class**.
 
+#### 🧪 Examples:
+
+```js
+[] instanceof Array;                 // true
+{} instanceof Object;               // true
+new Date() instanceof Date;         // true
+
+function Person() {}
+new Person() instanceof Person;     // true
+
+123 instanceof Number;              // false (primitive)
+new Number(123) instanceof Number;  // true (boxed object)
+```
 ## 🔁 10. Shallow vs Deep Copy
 
 ### 🔸 Shallow Copy
