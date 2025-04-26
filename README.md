@@ -698,6 +698,28 @@ This section dives deep into some of the most useful and frequently asked JavaSc
 ## 1. Array Methods Mastery
 ![image](https://github.com/user-attachments/assets/10d30b84-c826-467a-aea6-35ba133a6119)
 
+# JavaScript Array Methods and Their C# Equivalents
+
+| **JavaScript Method** | **C# Equivalent** | **JavaScript Example** | **JavaScript Output** | **C# Output** | **C# Example** |
+|------------------------|-------------------|--------------------------|------------------------|----------------|----------------|
+| **map()**              | `Select()`        | `let doubled = [1,2,3].map(n => n * 2);` | `[2, 4, 6]` | `2, 4, 6` | `numbers.Select(n => n * 2).ToArray();` |
+| **filter()**           | `Where()`         | `let even = [1,2,3,4,5].filter(n => n % 2 === 0);` | `[2, 4]` | `2, 4` | `numbers.Where(n => n % 2 == 0).ToArray();` |
+| **reduce()**           | `Aggregate()`     | `let sum = [1,2,3,4].reduce((a,b) => a + b);` | `10` | `10` | `numbers.Aggregate((a,b) => a + b);` |
+| **forEach()**          | `ForEach()`       | `[1,2,3].forEach(n => console.log(n));` | `1, 2, 3` | `1, 2, 3` | `numbers.ToList().ForEach(n => Console.WriteLine(n));` |
+| **some()**             | `Any()`           | `[1,2,3].some(n => n % 2 === 0);` | `true` | `True` | `numbers.Any(n => n % 2 == 0);` |
+| **every()**            | `All()`           | `[1,2,3].every(n => n < 4);` | `true` | `True` | `numbers.All(n => n < 4);` |
+| **indexOf()**          | `IndexOf()`       | `[1,2,3].indexOf(2);` | `1` | `1` | `Array.IndexOf(numbers, 2);` |
+| **find()**             | `FirstOrDefault()`| `[1,2,3].find(n => n > 1);` | `2` | `2` | `numbers.FirstOrDefault(n => n > 1);` |
+| **findIndex()**        | `FindIndex()`     | `[1,2,3].findIndex(n => n > 1);` | `1` | `1` | `numbers.ToList().FindIndex(n => n > 1);` |
+| **concat()**           | `Concat()`        | `[1,2].concat([3,4]);` | `[1, 2, 3, 4]` | `1, 2, 3, 4` | `arr1.Concat(arr2).ToArray();` |
+| **slice()**            | `Skip() + Take()` | `[1,2,3,4].slice(1, 3);` | `[2, 3]` | `2, 3` | `numbers.Skip(1).Take(2).ToArray();` |
+| **splice()**           | `Insert() / RemoveAt()` | `let a = [1,2,3]; a.splice(1,1);` | `[1, 3]` | `1, 3` | `list.RemoveAt(1);` |
+| **sort()**             | `OrderBy()`       | `[3,1,2].sort();` | `[1, 2, 3]` | `1, 2, 3` | `numbers.OrderBy(n => n).ToArray();` |
+| **reverse()**          | `Reverse()`       | `[1,2,3].reverse();` | `[3, 2, 1]` | `3, 2, 1` | `Array.Reverse(numbers);` |
+| **push()**             | `Add()`           | `let a = [1,2]; a.push(3);` | `[1, 2, 3]` | `1, 2, 3` | `list.Add(3);` |
+| **pop()**              | `RemoveAt()`      | `let a = [1,2,3]; a.pop();` | `[1, 2]` | `1, 2` | `list.RemoveAt(list.Count - 1);` |
+| **shift()**            | `RemoveAt(0)`     | `let a = [1,2,3]; a.shift();` | `[2, 3]` | `2, 3` | `list.RemoveAt(0);` |
+| **unshift()**          | `Insert(0, val)`  | `let a = [1,2]; a.unshift(0);` | `[0, 1, 2]` | `0, 1, 2` | `list.Insert(0, 0);` |
 
 ## 🔐 2. Closures
 
