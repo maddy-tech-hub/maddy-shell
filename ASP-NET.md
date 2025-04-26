@@ -823,13 +823,26 @@ Abstraction hides implementation details and enforces a contract using abstract 
 
 Example:
 ```csharp
-abstract class Animal
+// Abstract Class Implementation
+abstract class PaymentProcessor
 {
-    public abstract void MakeSound();
+    // Abstract method (no implementation)
+    public abstract void ProcessPayment(decimal amount);
+
+    // Concrete method (with implementation)
+    public void LogTransaction()
+    {
+        Console.WriteLine("Transaction logged.");
+    }
 }
-class Dog : Animal
+
+class CreditCardPayment : PaymentProcessor
 {
-    public override void MakeSound() { Console.WriteLine("Bark"); }
+    // Must implement the abstract method
+    public override void ProcessPayment(decimal amount)
+    {
+        Console.WriteLine($"Processing credit card payment of ${amount}");
+    }
 }
 ```
 
@@ -842,58 +855,48 @@ Defines a contract that multiple classes can implement, ensuring a standardized 
 Example:
 
 ```csharp
-abstract class Payment
+// Interface Implementation
+interface IPaymentProcessor
 {
-    public string TransactionId { get; set; }
+    // Interface method (no implementation)
+    void ProcessPayment(decimal amount);
 
-    // Abstract method – must be implemented in derived class
-    public abstract void ProcessPayment();
-
-    // Non-abstract method – shared logic
-    public void PrintReceipt()
-    {
-        Console.WriteLine($"Transaction {TransactionId} completed.");
-    }
+    // Note: You can't provide method implementations directly in interfaces, but you can use default interface methods (C# 8.0 and later)
+    // Uncomment below if using C# 8.0+ to use default implementation (otherwise, this will be an error):
+    // void LogTransaction() => Console.WriteLine("Transaction logged.");
 }
 
-
-class UpiPayment : Payment
+class CreditCardPayment : IPaymentProcessor
 {
-    public override void ProcessPayment()
+    // Must implement the interface method
+    public void ProcessPayment(decimal amount)
     {
-        Console.WriteLine("Processing payment via UPI...");
+        Console.WriteLine($"Processing credit card payment of ${amount}");
+    }
+
+    // LogTransaction must be implemented manually if you don’t use default interface method
+    public void LogTransaction()
+    {
+        Console.WriteLine("Transaction logged.");
     }
 }
-
-
-class CardPayment : Payment
+class Program
 {
-    public override void ProcessPayment()
+    static void Main(string[] args)
     {
-        Console.WriteLine("Processing payment via Credit/Debit Card...");
+        IPaymentProcessor payment = new CreditCardPayment();
+
+        // Process payment
+        payment.ProcessPayment(100.00m);
+
+        // Log the transaction
+        payment.LogTransaction();
     }
-}
-
-void Main()
-{
-    Payment payment;
-
-    string method = "UPI"; // Could come from API or UI input
-
-    if (method == "UPI")
-        payment = new UpiPayment();
-    else
-        payment = new CardPayment();
-
-    payment.TransactionId = "TXN12345";
-    payment.ProcessPayment();   // ⬅️ Polymorphic call through abstraction
-    payment.PrintReceipt();     // Common logic from base class
 }
 
 // output
-Processing payment via UPI...
-Transaction TXN12345 completed.
-
+Processing credit card payment of $100
+Transaction logged.
 ```
 
 ### **Enums and Structs**
