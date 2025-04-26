@@ -740,7 +740,8 @@ counter(); // Count: 2
 ## 📦 3. Hoisting
 
 ### What is Hoisting?
-Hoisting is JavaScript's default behavior of moving **declarations** to the top of their scope (not the values!).
+Hoisting is JavaScript's behavior of moving declarations to the top of their scope before code execution 
+— but only the declarations, not the assignments.
 
 ### 📌 How It Works
 
@@ -754,7 +755,7 @@ Hoisting is JavaScript's default behavior of moving **declarations** to the top 
 ```js
 console.log(a); // 👉 undefined
 var a = 10;
-
+```
 ---
 - What actually happens behind the scenes:
 ```js
@@ -771,7 +772,7 @@ let b = 20;
 console.log(c); // ❌ ReferenceError
 const c = 30;
 ```
-** Behind the scenes:**
+**Behind the scenes:**
 ```
 // Temporal Dead Zone (TDZ)
 let b;    // 🧨 Hoisted, but not initialized
@@ -803,6 +804,7 @@ function sayHi() {
 
 sayHi(); // 👉 Can be safely called here
 ```
+
 #### 🔸 But function expressions are NOT hoisted like declarations
 
 ```js
@@ -820,6 +822,25 @@ greet = function () {
   console.log("Hi from function expression!");
 };
 ```
+#### Arrow Functions are NOT Hoisted Like Declarations
+```js
+sayHello(); // ❌ TypeError: sayHello is not a function
+
+var sayHello = () => {
+  console.log("👋 Hello from arrow function!");
+};
+```
+- Behind the Scenes:
+```js
+var sayHello;      // ✅ `var` is hoisted and initialized to undefined
+
+sayHello();        // ❌ TypeError: sayHello is not a function
+
+sayHello = () => {
+  console.log("👋 Hello from arrow function!");
+};
+```
+
 
 ## 📊 Summary Table – Hoisting of `var`, `let`, `const`, and `function`
 
@@ -848,6 +869,7 @@ notHoisted(); // ❌ Error: notHoisted is not a function
 var notHoisted = function () {
   console.log("This won't work!");
 };
+```
 
 ## 🧠 4. Scope and Lexical Environment
 
@@ -868,23 +890,27 @@ JavaScript manages variables using **scope**, which defines where variables are 
 ### 🧪 Classic Lexical Scope Example
 
 ```js
-let a = 10;
+let x = 5;  // Global variable
 
 function outer() {
-  let a = 20;
-
+  let x = 10;  // Local variable in outer scope
+  
   function inner() {
-    console.log(a); // 👉 20 – Looks for `a` in its outer (lexical) scope
+    let x = 20;  // Local variable in inner scope
+    console.log(x);  // 20 o/p
   }
 
   inner();
 }
+
 outer();
+
 ```
 - inner() has access to variables from outer() because of lexical scoping — it remembers the environment in which it was defined, not where it was called
 
 
 ####  Example: Block Scope with let and const
+```js
 if (true) {
   let blockScoped = "I'm inside a block!";
   const alsoBlockScoped = "Me too!";
@@ -893,6 +919,7 @@ if (true) {
 
 console.log(blockScoped); // ❌ ReferenceError
 ```
+
 - let and const are block-scoped, meaning they can't be accessed outside the block {}.
 
 ####  Lexical Environment = Scope + Variable Environment
@@ -919,46 +946,51 @@ Its value depends on **how the function is called**.
 
 ---
 
-### 🧪 Real-Time Example: Method + Constructor Function in One
+### Example with Object Methods and `this`
 
 ```js
 const user = {
   name: "Madhava",
 
-  // Method: `this` refers to user object
+  // Method: `this` refers to the user object
   omr() {
-    console.log("👋 Hi, I'm", this.name); // 👉 Madhava
+    console.log("Hi, I'm", this.name); // 👉 Madhava
 
-    // ✅ Arrow function inherits `this`
+    // Arrow function inherits `this`
     const showWelcome = () => {
-      console.log("✅ Welcome,", this.name); // 👉 Madhava
+      console.log("Welcome,", this.name); // 👉 Madhava
     };
     showWelcome();
 
-    // ❌ Regular function loses `this`
+    // Regular function loses `this`
     function wrongContext() {
-      console.log("❌ Who am I?", this.name); // 👉 undefined (or window.name)
+      console.log("Who am I?", this.name); // 👉 undefined (or window.name)
     }
     wrongContext();
 
-    // ⏳ setTimeout with arrow function keeps `this`
+    // setTimeout with arrow function keeps `this`
     setTimeout(() => {
-      console.log("⏳ Still me after delay:", this.name); // 👉 Madhava
+      console.log("Still me after delay:", this.name); // 👉 Madhava
     }, 1000);
   }
 };
 
 user.omr();
+```
+### Example with Constructor Functions
 
-// 🧱 Constructor Function to create a new user
+```js
+// Constructor function to create a new user
 function User(name) {
   this.name = name;
-  console.log("🧱 Constructor Name:", this.name); // 👉 New object context
+  console.log("Constructor Name:", this.name); // 👉 New object context
 }
 
-const newUser = new User("Reddy"); // 🧱 Constructor Name: Reddy
+const newUser = new User("Reddy"); // Constructor Name: Reddy
+
 ```
-## 📐 6. Destructuring
+
+## 6. Destructuring
 
 ### Object Destructuring
 
@@ -967,86 +999,102 @@ const user = { name: "Tom", age: 28 };
 const { name, age } = user;
 console.log(name, age); // "Tom", 28
 ```
+
 ### Array Destructuring
 ```js
 const [a, b] = [1, 2];
 console.log(a, b); // 1, 2
 ```
-## 🌟 7. Spread and Rest
+## 7. Spread and Rest
 
 ### Spread Operator
 
-Used to expand arrays or objects.
+The **spread operator** (`...`) is used to expand arrays or objects.
 
+#### Example with Arrays
 ```js
 const nums = [1, 2, 3];
 const moreNums = [...nums, 4]; 
 console.log(moreNums); // [1, 2, 3, 4]
 ```
 ### Spread with objects:
+- The spread operator can also be used to expand the properties of an object into a new object.
 ```js
-const user = { name: "Alice" };
+const user = { name: "Madhava" };
 const updatedUser = { ...user, age: 25 };
-console.log(updatedUser); // { name: "Alice", age: 25 }
+console.log(updatedUser); // { name: "Madhava", age: 25 }
 ```
 ### Rest Operator
-Used to collect arguments into an array.
+The rest operator (...) collects multiple elements into a single array or object.
 ```js
 function sum(...args) {
   return args.reduce((a, b) => a + b, 0);
 }
-console.log(sum(1, 2, 3)); // 6
+console.log(sum(1, 2, 3)); // 
 ```
-Used in object/array destructuring:
+- The `...args` syntax gathers all arguments into an array, which is then summed using `reduce`.
+
+### Rest in Object Destructuring
 ```js
 const { a, ...rest } = { a: 1, b: 2, c: 3 };
 console.log(rest); // { b: 2, c: 3 }
 ```
-## 🧬 8. Optional Chaining and Nullish Coalescing
 
-### 🔍 Optional Chaining (`?.`)
-Optional chaining allows safe access to deeply nested properties without having to check each level.
+## 8. Optional Chaining and Nullish Coalescing
+
+### Optional Chaining (`?.`)
+
+Optional chaining allows you to safely access deeply nested properties in objects without manually checking each level for `null` or `undefined`.
+
+#### Example
 
 ```js
-const user = { profile: { name: "Eve" } };
+const user = { profile: { name: "Madhava" } };
 
-console.log(user?.profile?.name);  // "Eve"
-console.log(user?.address?.city);  // undefined (no error thrown)
+console.log(user?.profile?.name);  // "Madhava"
+console.log(user?.address?.city);  // undefined
 ```
 #### Prevents runtime errors from accessing properties of undefined or null.
 
-## 🔍 Nullish Coalescing (`??`)
+## 9. Nullish Coalescing (`??`)
 
-Returns the right-hand value only if the left-hand is `null` or `undefined`.
+The **nullish coalescing operator** (`??`) returns the **right-hand value** only if the **left-hand value** is `null` or `undefined`.
+
+### Example 1: Basic Usage
 
 ```js
 const value = null ?? "Default";
 console.log(value); // "Default"
-
-const value2 = 0 ?? 100;
-console.log(value2); // 0 (not null or undefined)
 ```
-#### Use ?? instead of || when you want to allow false, 0, or '' as valid values.
+### Example 2: When the Left Value is Not Nullish
+```js
+const value2 = 0 ?? 100;
+console.log(value2); // 0
+```
 
-## 🧪 9. `typeof` vs `instanceof`
+## 9. `typeof` vs `instanceof`
 
-### 🔹 `typeof`
-Used to check **primitive types** or built-in types like `function`, `undefined`, etc.
+### `typeof`
+
+The `typeof` operator is used to check the **type of a value**, especially useful for **primitive types** and some built-in types.
+
+#### Example:
 
 ```js
-typeof "hello";       // "string"
-typeof 123;           // "number"
-typeof true;          // "boolean"
-typeof undefined;     // "undefined"
-typeof null;          // "object" (quirk in JavaScript)
-typeof {};            // "object"
-typeof [];            // "object"
-typeof function() {}; // "function"
+typeof "hello";        // "string"
+typeof 123;            // "number"
+typeof true;           // "boolean"
+typeof undefined;      // "undefined"
+typeof null;           // "object" (this is a well-known JavaScript quirk)
+typeof {};             // "object"
+typeof [];             // "object" (arrays are objects in JavaScript)
+typeof function() {};  // "function"
 ```
-### 🔸 `instanceof`
-Used to check whether **an object is an instance of a constructor or class**.
+### `instanceof`
 
-#### 🧪 Examples:
+The `instanceof` operator is used to check whether an object is an **instance of a specific constructor or class**.
+
+#### Examples
 
 ```js
 [] instanceof Array;                 // true
@@ -1057,43 +1105,52 @@ function Person() {}
 new Person() instanceof Person;     // true
 
 123 instanceof Number;              // false (primitive)
-new Number(123) instanceof Number;  // true (boxed object)
+new Number(123) instanceof Number;  // true (object wrapper)
 ```
-## 🔁 10. Shallow vs Deep Copy
+## 10. Shallow vs Deep Copy
 
-### 🔸 Shallow Copy
-Copies top-level properties, but nested objects still refer to the same memory location.
+### Shallow Copy
+
+A **shallow copy** duplicates only the top-level properties. If the object contains nested objects, the inner objects are still **referenced**, not cloned.
+
+#### Example:
 
 ```js
-const user = { name: "Joe", address: { city: "NY" } };
+const user = { name: "Madhava", address: { city: "NY" } };
 const clone = { ...user };
 
-console.log(clone.name);          // "Joe"
+console.log(clone.name);          // "Madhava"
 console.log(clone.address.city);  // "NY"
+console.log(user.address.city);   // "NY"
 
-clone.address.city = "LA";
-console.log(user.address.city);   // "LA" ❗ (affects original)
-```
-#### ❗ Changes to nested objects reflect in both.
-### 🔸 Deep Copy
+clone.address.city = "LA";        // Modifying the city of the clone's address
+console.log(user.address.city);   // "LA" (original is affected)
+console.log(user.address.city);   // "LA"
+``
+### Deep Copy
 
-Creates a full independent copy of an object, including all nested levels.
-
+A deep copy creates a full, independent copy of an object, including all nested objects and arrays. This ensures that modifications to the copied object do not affect the original object.
 ####  Using JSON
 
 ```js
-const user = { name: "Joe", address: { city: "NY" } };
-const deepCopy = JSON.parse(JSON.stringify(user));
+const user = { name: "Madhava", address: { city: "NY" } };
 
-deepCopy.address.city = "Chicago";
+// Create a deep copy using JSON methods
+const clone = JSON.parse(JSON.stringify(user));
 
-console.log(user.address.city);      // "NY"
-console.log(deepCopy.address.city);  // "Chicago"
+console.log(clone.name);          // "Madhava"
+console.log(clone.address.city);  // "NY"
+console.log(user.address.city);   // "NY"
+
+// Modify the deep copy's nested object
+clone.address.city = "LA";
+
+console.log(user.address.city);      // "NY"  (original object is unaffected)
+console.log(clone.address.city);     // "LA"  (deep copy modified)
 ```
-#### ⚠️ Limitations: JSON.parse(JSON.stringify(...)) doesn’t support functions, undefined, Date, Map, Set, etc.
+#### ⚠️ Limitations: JSON.parse(JSON.stringify(...))  only supports objects and arrays
 
 ---
-
 
 ## TypeScript (TS)
 
