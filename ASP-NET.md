@@ -1635,7 +1635,7 @@ Data received: Hello, Async World!
 
 ---
 
-### **Task and Task<T>**
+### **Task and Task\<T\>**
 `Task` represents an asynchronous operation that can return a result (`Task<T>`) or simply execute (`Task`).
 
 #### **Example:**
