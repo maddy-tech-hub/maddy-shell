@@ -326,7 +326,7 @@ CSS (Cascading Style Sheets) is a stylesheet language used to control the presen
 - Separates content from design
 - Enhances user experience with better visuals
 - Enables responsive design
-- Supports animations and interactivity
+- Supports tions and interactivity
 - Improves maintainability and reusability
 
 ---
@@ -452,15 +452,36 @@ CSS Grid is used to create complex and responsive layouts.
 
 ### **5.1 Animations & Transitions**
 
+```html
+<button class="fancy-button">Click Me</button>
+```
 ```css
-.box {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    transition: background-color 0.5s ease;
+.fancy-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* 🔄 This is the TRANSITION */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.box:hover {
-    background-color: blue;
+
+.fancy-button:hover {
+  background-color: #45a049;
+
+  /* 🎯 This is the ANIMATION */
+  animation: bounce 0.6s;
+}
+
+/* 🎬 Keyframes for the bounce ANIMATION */
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-10px); }
+  60%  { transform: translateY(5px); }
+  100% { transform: translateY(0); }
 }
 ```
 
