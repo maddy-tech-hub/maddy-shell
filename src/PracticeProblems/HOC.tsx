@@ -1,14 +1,15 @@
-
-function HOC(ChildComponent:any) {
-  return function Enhanced(props){return <ChildComponent {...props} />;}
+interface PropType {
+    isLogin: boolean;
 }
 
-function ChildComponent({ isLoggedIn }) {
-  return (
-    <div>
-      {isLoggedIn ? <h1>Welcome, User!</h1> : <h1>No Access</h1>}
-    </div>
-  );
+function HoC(WrappedComponent: React.ComponentType<PropType>) {
+    return function EnhancedComponent(props: any) {
+        return <WrappedComponent {...props} />;
+    };
 }
 
-export default HOC(ChildComponent);
+const WrappedComponent = (props: PropType) => {
+    return <div>{props.isLogin ? 'Welcome to Wrapper Component' : 'Please Re Login'}</div>;
+}
+
+export default HoC(WrappedComponent);

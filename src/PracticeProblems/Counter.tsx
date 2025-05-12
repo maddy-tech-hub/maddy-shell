@@ -13,7 +13,7 @@ function counterReducer (state:any, action:any)  {
 
 function Counter() {
 
-  const [state, dispatch] = useReducer(counterReducer, { count: 0 })
+  const [state, dispatch] = useReducer(counterReducer, { count: 0 });
 
   return (
     <>

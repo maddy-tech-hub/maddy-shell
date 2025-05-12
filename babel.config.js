@@ -6,7 +6,7 @@ module.exports = {
             {
                 runtime: 'automatic',
             },
-        ],        
+        ],
         '@babel/preset-typescript',
     ],
     plugins: [
@@ -18,7 +18,7 @@ module.exports = {
                 preprocess: false,
             },
         ],
-        ...(process.env.NODE_ENV !== 'production' ? ['react-refresh/babel'] : []),
+        ...(process.env.NODE_ENV === 'development' ? ['react-refresh/babel'] : []), // Only include in development
     ],
     env: {
         test: {

@@ -1,26 +1,24 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext } from 'react';
 
+const ContextCreation = createContext({});
 
-const countContext = createContext(0);
-
-export const ProviderContext = ({ children }: any) => {
-  const [count, setCount] = useState(0);
+export const Provider = ({ children }: any) => {
+  const [context, setContext] = React.useState(0);
   return (
-    <countContext.Provider value={{ count, setCount }}>
+    <ContextCreation.Provider value={{ context, setContext }}>
       {children}
-    </countContext.Provider>
-  )
-}
+    </ContextCreation.Provider>
+  );
+};
 
-function Context() {
-  const { count, setCount } = useContext(countContext);
-  const handleClick = () => setCount(count + 1);
+export const Context = () => {
+  const { context, setContext } = React.useContext(ContextCreation);
   return (
     <>
-      <div>Context: {count}</div>
-      <button onClick={handleClick}>Click Here</button>
+      <div data-testid="context-value">Context : {context}</div>
+      <button data-testid="handleEvent" onClick={() => setContext(context + 1)}>
+        Click Here
+      </button>
     </>
-  )
-}
-
-export default Context
+  );
+};
