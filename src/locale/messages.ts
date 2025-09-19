@@ -6,7 +6,7 @@ const messages: Record<string, Record<string, string>> = {
     name: 'Madhava Reddy Vemireddy',
     bioTitle: 'Full Stack Developer',
     description:
-      'I specialize in building responsive frontends with React and scalable backends with .NET C#. My focus is on delivering modern, efficient, and user-friendly web solutions.',
+      'I am a Front-End Developer specializing in <b>React</b> with 4.3 years of experience building scalable, responsive, and user-friendly web applications. Skilled in <b>React, TypeScript, JavaScript, Redux, Context API</b>, and modern UI frameworks, I focus on delivering clean, efficient, and maintainable code. I have strong experience with state management, client-side routing, API integration, and responsive design using <b>CSS Grid, Flexbox, and SCSS</b>. I actively leverage <b>Git & GitHub workflows</b> (branching, pull requests, rebasing) for effective collaboration and have additional experience with <b>.NET backends</b> and <b>AWS (RDS, S3)</b> for full-stack development.',
     aboutLinkText: 'About Me',
     aboutLinkURL: '/about',
     cvLinkText: 'View Resume',
