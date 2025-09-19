@@ -1,10 +1,10 @@
 import { RootStateType } from '@src/redux/store';
 import React, { Suspense } from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-import profile from '../assets/Reddy.jpg';
+import profile from '../assets/image.png';
 import cv from '../assets/Madhava_Vemireddy.pdf';
-
+// src\assets\
 // Lazy load the Profile component
 const Profile = React.lazy(() => import('maddy_mfe/Profile'));
 const Contact = React.lazy(() => import('../pages/Contact'));
@@ -23,7 +23,12 @@ const Home: React.FC = () => {
       greeting: intl.formatMessage({ id: 'greeting' }),
       name: intl.formatMessage({ id: 'name' }),
       title: intl.formatMessage({ id: 'bioTitle' }),
-      description: intl.formatMessage({ id: 'description' }),
+      description: (
+      <FormattedMessage
+        id="description"
+        values={{ b: (chunks) => <strong>{chunks}</strong> }}
+      />
+    ),
       aboutLinkText: intl.formatMessage({ id: 'aboutLinkText' }),
       aboutLinkURL: intl.formatMessage({ id: 'aboutLinkURL' }),
       cvLinkText: intl.formatMessage({ id: 'cvLinkText' }),

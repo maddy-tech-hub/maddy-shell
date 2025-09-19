@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/css/About.scss';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 const About: React.FC = () => {
   return (
@@ -8,14 +9,10 @@ const About: React.FC = () => {
       <section className="intro card">
         <h1>About Me</h1>
         <p>
-          I am a passionate <strong>Full Stack Developer</strong> with over 4
-          years of experience in designing, developing, and deploying scalable
-          web applications and RESTful APIs. My expertise spans front-end
-          technologies like <strong>ReactJS</strong> and{' '}
-          <strong>TypeScript</strong>, along with back-end solutions using{' '}
-          <strong>ASP.NET Core</strong> and <strong>PostgreSQL</strong>. I
-          specialize in building user-friendly interfaces and cloud-based
-          architectures to deliver robust solutions.
+          <FormattedMessage
+            id="description"
+            values={{ b: (chunks) => <strong>{chunks}</strong> }}
+          />
         </p>
         <Link to="/contact" className="action-link">
           Get in Touch
