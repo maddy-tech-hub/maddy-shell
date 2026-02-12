@@ -108,7 +108,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpe?g|gif|svg|pdf)$/i,
+                test: /\.(png|jpe?g|gif|svg|pdf|docx)$/i,
                 type: 'asset/resource',
                 generator: {
                   filename: 'assets/[name].[hash][ext][query]',
@@ -117,3 +117,4 @@ module.exports = {
         ],
     },
 };
+
