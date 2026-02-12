@@ -1,12 +1,30 @@
+
+// utils/getExperience.ts
+export const getExperience = (joinDateString: string): string => {
+  const joinDate = new Date(joinDateString);
+  const now = new Date();
+
+  let years = now.getFullYear() - joinDate.getFullYear();
+  let months = now.getMonth() - joinDate.getMonth();
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  return `${years}+ years ${months}+ months`;
+};
+
+const experience = getExperience('2021-06-23');
+
 // locale/messages.ts
 const messages: Record<string, Record<string, string>> = {
   en: {
     loading: 'Loading...',
     greeting: "Hello, It's Me",
     name: 'Madhava Reddy Vemireddy',
-    bioTitle: 'Full Stack Developer',
-    description:
-      'I am a Full Stack Developer specializing in <b>React</b> with 4.3 years of experience building scalable, responsive, and user-friendly web applications. Skilled in <b>React, TypeScript, JavaScript, Redux, Context API</b>, and modern UI frameworks, I focus on delivering clean, efficient, and maintainable code. I have strong experience with state management, client-side routing, API integration, and responsive design using <b>CSS Grid, Flexbox, and SCSS</b>. I actively leverage <b>Git & GitHub workflows</b> (branching, pull requests, rebasing) for effective collaboration and have additional experience with <b>.NET backends</b> and <b>AWS (RDS, S3)</b> for full-stack development.',
+    bioTitle: 'Senior Frontend Engineer (React)',
+    description: `I am a Senior Frontend Engineer specializing in <b>React</b> with ${experience} of professional experience building scalable, high-performance, and user-centric web applications. I have strong expertise in <b>React, TypeScript, JavaScript, Redux, and Context API</b>, with deep understanding of state management, client-side architecture, and API integration. I build responsive, accessible interfaces using <b>CSS Grid, Flexbox, and SCSS</b>, ensuring clean, maintainable, and production-ready code. I actively follow modern <b>Git & GitHub workflows</b> and also bring full-stack exposure with experience in <b>.NET backends</b> and <b>AWS (RDS, S3)</b>.`,
     aboutLinkText: 'About Me',
     aboutLinkURL: '/about',
     cvLinkText: 'View Resume',
