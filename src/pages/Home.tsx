@@ -3,7 +3,8 @@ import React, { Suspense } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import profile from '../assets/image.png';
-import cv from '../assets/Madhava_Vemireddy.pdf';
+import cv from '../assets/Madhava_Reddy_React_Dev_2026.docx';
+
 // src\assets\
 // Lazy load the Profile component
 const Profile = React.lazy(() => import('maddy_mfe/Profile'));
