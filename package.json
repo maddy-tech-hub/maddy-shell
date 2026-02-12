@@ -5,8 +5,8 @@
   "license": "ISC",
   "engineStrict": true,
   "engines": {
-    "npm": ">=9.5.1",
-    "node": ">=18.16.1"
+    "npm": ">=10",
+    "node": ">=22.11.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
