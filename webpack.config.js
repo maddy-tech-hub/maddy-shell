@@ -45,17 +45,25 @@ console.log('envKeys : ', envKeys);
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
     entry: './src/index.tsx',
-    devtool: 'source-map',
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     devServer: {
+        host: '0.0.0.0',
+        allowedHosts: 'all',
         hot: true,
         historyApiFallback: true,
-        port: process.env.PORT || 1122,
+        port: process.env.PORT || 3000,
     },
     target: 'web',
+    cache: {
+        type: 'filesystem',
+    },
     output: {
+        uniqueName: 'shell_host',
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        publicPath: 'auto',
+        assetModuleFilename: 'assets/[name].[contenthash][ext][query]',
     },
     plugins: [
         new HtmlWebpackPlugin({ template: './public/index.html' }),
@@ -77,23 +85,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$|tsx/,
+                test: /\.[jt]sx?$/,
                 exclude: /node_modules/,
-                loader: require.resolve('babel-loader'),
-                options: { plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean), },
-            },
-            {
-                test: /.(js|jsx|.ts$|tsx)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            cacheDirectory: true,
-                            plugins: ['@babel/plugin-transform-runtime'],
-                        },
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
+                        plugins: [
+                            '@babel/plugin-transform-runtime',
+                            isDevelopment && require.resolve('react-refresh/babel'),
+                        ].filter(Boolean),
                     },
-                ],
+                },
             },
             {
                 test: /\.css$/,
@@ -110,11 +113,16 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg|pdf|docx)$/i,
                 type: 'asset/resource',
-                generator: {
-                  filename: 'assets/[name].[hash][ext][query]',
-                },
-              },
+            },
         ],
+    },
+    optimization: {
+        moduleIds: 'deterministic',
+        chunkIds: 'deterministic',
+        splitChunks: {
+            chunks: 'all',
+        },
+        runtimeChunk: false,
     },
 };
 

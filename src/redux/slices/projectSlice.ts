@@ -8,7 +8,7 @@ const initialState: { projects: cardInfo[] } = {
       subTitle: 'Personal Project',
       details: [
         ' Developed a comprehensive React-based Micro-Frontend (MFE) portfolio.',
-        ' Key Repositories: maddy-widgets (UI components), maddy-login (authentication), maddy-shell (main shell).',
+        ' Key repositories: ui-remote (shared UI), auth-remote (authentication), shell-host (host shell).',
         ' Features: User login/signup, reusable widgets, and contact forms.',
         ' Technologies: ReactJS, Webpack, GitHub Actions, AWS S3.',
         ' Backend API: .NET Core for account management and email services.',
@@ -16,7 +16,7 @@ const initialState: { projects: cardInfo[] } = {
       ],
       duration: 'Duration: 2024',
       linkTitle: 'View Project',
-      url: 'http://maddy-shell.s3-website.ap-south-1.amazonaws.com',
+      url: '/',
       type: 'personal',
     },
     {

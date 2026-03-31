@@ -3,14 +3,18 @@ import { cardInfo } from '@src/interfaces/common';
 import '../styles/css/SkillsComponent.scss';
 import { skillsInfo } from '@src/Services/cardList';
 import { useIntl } from 'react-intl';
+import { lazyRemote } from '@src/shared/lib/mfe/lazyRemote';
 
-const MaddyCardSection = React.lazy(() => import('maddy_mfe/MaddyCardSection'));
+const CardSection = lazyRemote(
+  () => import('ui_remote/CardSection'),
+  'ui-card-section-skills'
+);
 
 const SkillsComponent: React.FC = () => {
   const intl = useIntl();
   return (
     <div className="skills-container">
-      <MaddyCardSection
+      <CardSection
         title={intl.formatMessage({ id: 'skillTitle' })}
         subtitle={intl.formatMessage({ id: 'skillSubTitle' })}
         cardInfoList={skillsInfo}

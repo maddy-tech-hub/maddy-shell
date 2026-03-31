@@ -2,7 +2,12 @@ import React from 'react';
 import { RootStateType } from '@src/redux/store';
 import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
-const MaddyCardSection = React.lazy(() => import('maddy_mfe/MaddyCardSection'));
+import { lazyRemote } from '@src/shared/lib/mfe/lazyRemote';
+
+const CardSection = lazyRemote(
+  () => import('ui_remote/CardSection'),
+  'ui-card-section-projects'
+);
 
 const Projects: React.FC = () => {
   const projectList = useSelector(
@@ -17,13 +22,13 @@ const Projects: React.FC = () => {
   const intl = useIntl();
   return (
     <div className="projects-page">
-      <MaddyCardSection
+      <CardSection
         title={intl.formatMessage({ id: 'independentProjectTitle' })}
         subtitle={intl.formatMessage({ id: 'independentProjectSubTitle' })}
         cardInfoList={personalProjects}
         borderColor="#ff9800"
       />
-      <MaddyCardSection
+      <CardSection
         title={intl.formatMessage({ id: 'professionalProjectTitle' })}
         subtitle={intl.formatMessage({ id: 'professionalProjectSubTitle' })}
         cardInfoList={professionalProjects}

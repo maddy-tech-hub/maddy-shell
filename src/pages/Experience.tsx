@@ -1,13 +1,18 @@
 import React from 'react';
 import { experiences } from '@src/Services/cardList';
 import { useIntl } from 'react-intl';
-const MaddyCardSection = React.lazy(() => import('maddy_mfe/MaddyCardSection'));
+import { lazyRemote } from '@src/shared/lib/mfe/lazyRemote';
+
+const CardSection = lazyRemote(
+  () => import('ui_remote/CardSection'),
+  'ui-card-section-experience'
+);
 
 const Experience: React.FC = () => {
   const intl = useIntl();
   return (
     <div className="experience-page">
-      <MaddyCardSection
+      <CardSection
         title={intl.formatMessage({ id: 'experienceTitle' })}
         subtitle={intl.formatMessage({ id: 'experienceSubTitle' })}
         cardInfoList={experiences}

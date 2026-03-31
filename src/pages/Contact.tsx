@@ -10,8 +10,12 @@ import {
 } from 'react-icons/fa';
 import Loader from '../components/Misc/Loader';
 import { useIntl } from 'react-intl';
+import { lazyRemote } from '@src/shared/lib/mfe/lazyRemote';
 
-const ContactWidget = lazy(() => import('maddy_mfe/ContactWidget'));
+const ContactWidget = lazyRemote(
+  () => import('ui_remote/ContactWidget'),
+  'ui-contact-widget'
+);
 
 const Contact: React.FC = () => {
   const intl = useIntl();

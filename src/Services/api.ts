@@ -1,12 +1,14 @@
 import profile from '../assets/MT_NEW.png';
+import { appRoutes } from '@src/shared/config/appRoutes';
+
 export const quickLinks = [
-  { label: 'Home', url: '/' },
-  { label: 'About', url: '/about' },
-  { label: 'Skills', url: '/skills' },
-  { label: 'Education', url: '/education' },
-  { label: 'Experience', url: '/experience' },
-  { label: 'Projects', url: '/projects' },
-  { label: 'Contact Me', url: '/contact' },
+  { label: 'Home', url: appRoutes.home },
+  { label: 'About', url: appRoutes.about },
+  { label: 'Skills', url: appRoutes.skills },
+  { label: 'Education', url: appRoutes.education },
+  { label: 'Experience', url: appRoutes.experience },
+  { label: 'Projects', url: appRoutes.projects },
+  { label: 'Contact Me', url: appRoutes.contact },
 ];
 
 export const modernDarkTheme = {

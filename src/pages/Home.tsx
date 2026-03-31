@@ -1,13 +1,14 @@
 import { RootStateType } from '@src/redux/store';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-import profile from '../assets/image.png';
+import profile from '../assets/Reddy.jpg';
 import cv from '../assets/Madhava_Reddy_React_Dev_2026.docx';
+import { lazyRemote } from '@src/shared/lib/mfe/lazyRemote';
 
 // src\assets\
 // Lazy load the Profile component
-const Profile = React.lazy(() => import('maddy_mfe/Profile'));
+const Profile = lazyRemote(() => import('ui_remote/Profile'), 'ui-profile');
 const Contact = React.lazy(() => import('../pages/Contact'));
 
 const Home: React.FC = () => {
