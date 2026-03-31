@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Loader from './components/Misc/Loader';
 import { RootStateType } from './redux/store';
 import { useSelector } from 'react-redux';
-import { headerData, whatsappData } from './Services/api';
+import { footerLinkSections, headerData, whatsappData } from './Services/api';
 import { routes } from './routes/config';
 import ScrollToTop from './components/Misc/ScrollToTop';
 import { useIntl } from 'react-intl';
@@ -90,7 +90,7 @@ const AppRoutes: React.FC = () => {
             socialLinks={socialLinks}
             companyName={intl.formatMessage({ id: 'name' })}
             showFooterBottom={true}
-            linkSections={[]}
+            linkSections={footerLinkSections}
           />
         </RemoteBoundary>
       </Suspense>

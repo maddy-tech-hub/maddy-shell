@@ -1,114 +1,128 @@
 import React from 'react';
-import '../styles/css/About.scss';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
+import { RootStateType } from '@src/redux/store';
+import { appRoutes } from '@src/shared/config/appRoutes';
+import PageIntro from '@src/components/Layout/PageIntro';
+import {
+  BulletList,
+  PageCanvas,
+  PagePanel,
+  PagePanelGrid,
+  PageStack,
+  PanelCopy,
+  PanelEyebrow,
+  PanelTitle,
+} from '@src/components/Layout/PageScaffold';
+import {
+  EXPERIENCE_JOIN_DATE,
+  getRoundedExperienceLabel,
+  getRoundedExperienceValue,
+} from '@src/shared/utils/experience';
 
 const About: React.FC = () => {
+  const experienceLabel = getRoundedExperienceLabel(EXPERIENCE_JOIN_DATE);
+  const experienceValue = getRoundedExperienceValue(EXPERIENCE_JOIN_DATE);
+  const { socialLinks } = useSelector(
+    (state: RootStateType) => state.contactDetailsSlice
+  );
+
   return (
-    <div className="about-container">
-      <section className="intro card">
-        <h1>About Me</h1>
-        <p>
-          <FormattedMessage
-            id="description"
-            values={{ b: (chunks) => <strong>{chunks}</strong> }}
-          />
-        </p>
-        <Link to="/contact" className="action-link">
-          Get in Touch
-        </Link>
-      </section>
+    <PageCanvas>
+      <PageStack>
+        <PageIntro
+          eyebrow="About me"
+          title="A full-stack developer focused on making complex products clear and usable"
+          description={`I'm based in Bengaluru and work mainly with React, TypeScript, and ASP.NET Web API. Over the last ${experienceLabel}, I've delivered products where the workflows are detailed, the business rules are heavy, and the UI still needs to feel simple, fast, and trustworthy. I enjoy bringing structure to that kind of work through reusable frontend architecture, clean API integration, and thoughtful implementation.`}
+          highlights={[
+            'React + TypeScript',
+            'ASP.NET Web API',
+            'Reusable UI systems',
+            'Workflow-heavy products',
+            'Product-minded engineering',
+          ]}
+          stats={[
+            { value: experienceValue, label: 'Years of experience' },
+            { value: 'React + ASP.NET', label: 'Main full-stack focus' },
+            { value: 'Enterprise + personal', label: 'Project range' },
+          ]}
+          actions={[
+            { label: 'Explore Projects', url: appRoutes.projects },
+            { label: 'View Skills', url: appRoutes.skills },
+            {
+              label: 'LinkedIn Profile',
+              url:
+                socialLinks.linkedin ||
+                'https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167',
+            },
+          ]}
+        />
 
-      <section className="skills card">
-        <h2>Skills</h2>
-        <ul>
-          <li>
-            <strong>Front-End:</strong> ReactJS, TypeScript, Redux,
-            Styled-components, CSS Grid, Flexbox
-          </li>
-          <li>
-            <strong>Back-End:</strong> ASP.NET Core, C#, RESTful APIs, Entity
-            Framework
-          </li>
-          <li>
-            <strong>Databases:</strong> PostgreSQL, MySQL, Oracle
-          </li>
-          <li>
-            <strong>Cloud:</strong> AWS (RDS, S3), Azure
-          </li>
-          <li>
-            <strong>CI/CD:</strong> Azure Pipelines, Jenkins
-          </li>
-        </ul>
-        <Link to="/skills" className="action-link">
-          View Skills
-        </Link>
-      </section>
+        <PagePanelGrid>
+          <PagePanel>
+            <PanelEyebrow>What I bring</PanelEyebrow>
+            <PanelTitle>Frontend depth with enough backend awareness to build complete features</PanelTitle>
+            <PanelCopy>
+              My strongest value is in the overlap between interface quality and
+              backend-connected product delivery. I am comfortable shaping the user
+              journey, integrating APIs, and keeping the implementation readable for
+              the next set of features.
+            </PanelCopy>
+            <BulletList>
+              <li>Strong hands-on work with React, Hooks, Redux Toolkit, routing, and reusable UI patterns</li>
+              <li>Practical ASP.NET Web API integration with authentication, business logic, and data-backed workflows</li>
+              <li>Comfortable supporting a feature from requirement analysis through testing and release</li>
+            </BulletList>
+          </PagePanel>
 
-      <section className="education card">
-        <h2>Education</h2>
-        <p>
-          <strong>B.Tech in Computer Science and Engineering</strong>
-          <br />
-          RISE Krishna Sai Prakasam Group Institutions
-          <br />
-          GPA: 7.73/10.0
-          <br />
-          <em>Coursework:</em> Data Analytics, Web Development, Algorithms,
-          Database Management Systems
-        </p>
-        <Link to="/education" className="action-link">
-          View Education
-        </Link>
-      </section>
+          <PagePanel>
+            <PanelEyebrow>How I work</PanelEyebrow>
+            <PanelTitle>Think first, implement cleanly, and improve what feels messy</PanelTitle>
+            <PanelCopy>
+              I like to understand the real flow before I start building. That helps
+              me avoid unnecessary complexity and keeps the code easier to extend,
+              debug, and maintain after the first delivery.
+            </PanelCopy>
+            <BulletList>
+              <li>Prefer clean structure and clear ownership over rushed implementations</li>
+              <li>Strong on debugging, bug fixing, and refactoring features that have become hard to manage</li>
+              <li>Used to collaborating with backend, QA, and product teams in Agile delivery environments</li>
+            </BulletList>
+          </PagePanel>
 
-      <section className="experience card">
-        <h2>Experience</h2>
-        <>
-          <h3>Software Developer</h3>
-          <p>
-            Amiti Software Technologies Pvt. Ltd., Bengaluru
-            <br />
-            <em>June 2021 – Present</em>
-          </p>
-          <Link to="/experience" className="action-link">
-            View Experience
-          </Link>
-        </>
-      </section>
+          <PagePanel>
+            <PanelEyebrow>What I build best</PanelEyebrow>
+            <PanelTitle>Products where clarity matters more than visual noise</PanelTitle>
+            <PanelCopy>
+              A lot of my work sits in domains where users are completing real tasks:
+              bidding, appraisal, eligibility checks, payoff requests, and finance
+              workflows. Those products need the UI to guide people well while still
+              handling complex business logic underneath.
+            </PanelCopy>
+            <BulletList>
+              <li>Auction, pricing, and purchasing flows with dynamic API-backed state</li>
+              <li>Inspection, appraisal, and retail inventory workflows with multiple decision steps</li>
+              <li>Finance and loan-oriented experiences where trust, readability, and stability matter</li>
+            </BulletList>
+          </PagePanel>
 
-      <section className="projects card">
-        <h2>Projects</h2>
-        <h3>Professional Projects</h3>
-        <ul>
-          <li>
-            <strong>Retail IMS Appraisals:</strong> Developed a vehicle appraisal and inventory system for dealerships using ReactJS and .NET Core.
-          </li>
-          <li>
-            <strong>Vehicle Auction Platform:</strong> Built dynamic search and bidding workflows for automotive auctions with ReactJS and .NET Core.
-          </li>
-          <li>
-            <strong>HCC Loan Payoff Platform:</strong> Created APIs and responsive UI for loan management at Hyundai Capital Canada using ASP.NET Core and ReactJS.
-          </li>
-        </ul>
-
-        <h3>Independent Projects</h3>
-        <ul>
-          <li>
-            <strong>React Micro-Frontend (MFE) Portfolio:</strong> Developed a
-            comprehensive React-based MFE portfolio with features like user
-            login/signup and reusable widgets.
-          </li>
-          <li>
-            <strong>IRASAH:</strong> Created a responsive React front-end for a
-            training institute with email form submissions using Email.js.
-          </li>
-        </ul>
-        <Link to="/projects" className="action-link">
-          View Projects
-        </Link>
-      </section>
-    </div>
+          <PagePanel>
+            <PanelEyebrow>Current direction</PanelEyebrow>
+            <PanelTitle>Growing toward stronger product and platform ownership</PanelTitle>
+            <PanelCopy>
+              Alongside enterprise work, I use personal projects to sharpen how I
+              think about architecture and UX. The Finance Tracker helps me practice
+              end-to-end full-stack product building, while this portfolio lets me
+              improve micro-frontend structure, reusable UI, and overall presentation.
+            </PanelCopy>
+            <BulletList>
+              <li>Building full-stack product features with React, ASP.NET Web API, and PostgreSQL</li>
+              <li>Improving reusable UI systems and cleaner module boundaries in micro-frontends</li>
+              <li>Using AI-assisted development tools like Codex, Claude, and Cline to speed up research, refactoring, and delivery</li>
+            </BulletList>
+          </PagePanel>
+        </PagePanelGrid>
+      </PageStack>
+    </PageCanvas>
   );
 };
 

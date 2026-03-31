@@ -1,111 +1,47 @@
+import {
+  EXPERIENCE_JOIN_DATE,
+  getRoundedExperienceLabel,
+} from '@src/shared/utils/experience';
 
-// utils/getExperience.ts
-export const getExperience = (joinDateString: string): string => {
-  const joinDate = new Date(joinDateString);
-  const now = new Date();
+const experience = getRoundedExperienceLabel(EXPERIENCE_JOIN_DATE);
 
-  let years = now.getFullYear() - joinDate.getFullYear();
-  let months = now.getMonth() - joinDate.getMonth();
-
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  return `${years}+ years ${months}+ months`;
+const english = {
+  loading: 'Loading...',
+  greeting: "Hi, I'm",
+  name: 'Madhava Reddy Vemireddy',
+  bioTitle: 'Senior Full-Stack React & .NET Developer',
+  description: `I build scalable products with <b>React</b>, <b>TypeScript</b>, and <b>ASP.NET Web API</b>, backed by ${experience} of professional delivery. My work covers reusable UI systems, secure integrations, and PostgreSQL-backed workflows across auction, appraisal, loan payoff, and finance platforms. I enjoy turning complex requirements into clean experiences that feel polished for users and practical for teams to maintain.`,
+  aboutLinkText: 'About Me',
+  aboutLinkURL: '/about',
+  cvLinkText: 'View Resume',
+  skillTitle: 'Skills and Expertise',
+  skillSubTitle:
+    'Technologies, tooling, and delivery practices I use to ship polished products',
+  educationTitle: 'Educational Background',
+  educationSubTitle: 'Foundations that shaped my engineering approach',
+  experienceTitle: 'Professional Experience',
+  experienceSubTitle:
+    'Shipping scalable interfaces, APIs, and product workflows in real teams',
+  independentProjectTitle: 'Independent Solutions',
+  independentProjectSubTitle:
+    'Independent products where I explore architecture, UX, and full-stack delivery',
+  professionalProjectTitle: 'Professional Projects',
+  professionalProjectSubTitle:
+    'Enterprise platforms and client-facing systems delivered in production teams',
+  contactTitle: 'Contact Me',
+  fullNameLabel: 'Your Full Name',
+  emailLabel: 'Email Address',
+  mobileLabel: 'Mobile Number',
+  messageLabel: 'Write Message',
+  buttonLabel: 'Send Message',
+  successMessageTitle: 'Thank you for choosing us!',
+  successMessage: 'Our team will contact you shortly.',
 };
 
-const experience = getExperience('2021-06-23');
-
-// locale/messages.ts
 const messages: Record<string, Record<string, string>> = {
-  en: {
-    loading: 'Loading...',
-    greeting: "Hello, It's Me",
-    name: 'Madhava Reddy Vemireddy',
-    bioTitle: 'Senior Frontend Engineer (React)',
-    description: `I am a Senior Frontend Engineer specializing in <b>React</b> with ${experience} of professional experience building scalable, high-performance, and user-centric web applications. I have strong expertise in <b>React, TypeScript, JavaScript, Redux, and Context API</b>, with deep understanding of state management, client-side architecture, and API integration. I build responsive, accessible interfaces using <b>CSS Grid, Flexbox, and SCSS</b>, ensuring clean, maintainable, and production-ready code. I actively follow modern <b>Git & GitHub workflows</b> and also bring full-stack exposure with experience in <b>.NET backends</b> and <b>AWS (RDS, S3)</b>.`,
-    aboutLinkText: 'About Me',
-    aboutLinkURL: '/about',
-    cvLinkText: 'View Resume',
-    skillTitle: 'Skills and Expertise',
-    skillSubTitle: "Technologies and Tools I've Worked With",
-    educationTitle: 'Educational Background',
-    educationSubTitle: 'Highlights of Academic Achievements',
-    experienceTitle: 'Professional Experience',
-    experienceSubTitle: 'Building Scalable and Efficient Applications',
-    independentProjectTitle: 'Independent Solutions',
-    independentProjectSubTitle:
-      'Independent initiatives and personal contributions',
-    professionalProjectTitle: 'Professional Projects',
-    professionalProjectSubTitle: 'Impactful organizational contributions',
-    contactTitle: 'Contact Me',
-    fullNameLabel: 'Your Full Name',
-    emailLabel: 'Email Address',
-    mobileLabel: 'Mobile Number',
-    messageLabel: 'Write Message',
-    buttonLabel: 'Send Message',
-    successMessageTitle: 'Thank you for choosing us!',
-    successMessage: 'Our team will contact you shortly.',
-  },
-  fr: {
-    loading: 'Chargement...',
-    greeting: "Bonjour, c'est moi",
-    name: 'Madhava Reddy Vemireddy',
-    bioTitle: 'Développeur Full Stack',
-    description:
-      'Je me spécialise dans la création de frontends réactifs avec React et de backends évolutifs avec .NET C#. Mon objectif est de fournir des solutions web modernes, efficaces et conviviales.',
-    aboutLinkText: 'À propos de moi',
-    aboutLinkURL: '/a-propos',
-    cvLinkText: 'Voir le CV',
-    skillTitle: 'Compétences et Expertise',
-    skillSubTitle: "Technologies et outils avec lesquels j'ai travaillé",
-    educationTitle: 'Parcours Éducatif',
-    educationSubTitle: 'Faits marquants des réalisations académiques',
-    experienceTitle: 'Expérience Professionnelle',
-    experienceSubTitle: 'Créer des applications évolutives et efficaces',
-    independentProjectTitle: 'Solutions Indépendantes',
-    independentProjectSubTitle: 'Initiatives personnelles et contributions',
-    professionalProjectTitle: 'Projets Professionnels',
-    professionalProjectSubTitle: 'Contributions organisationnelles impactantes',
-    contactTitle: 'Contactez-moi',
-    fullNameLabel: 'Votre Nom Complet',
-    emailLabel: 'Adresse Email',
-    mobileLabel: 'Numéro de Téléphone',
-    messageLabel: 'Écrire un Message',
-    buttonLabel: 'Envoyer le Message',
-    successMessageTitle: 'Merci de nous avoir choisis !',
-    successMessage: 'Notre équipe vous contactera sous peu.',
-  },
-  es: {
-    loading: 'Cargando...',
-    greeting: 'Hola, soy yo',
-    name: 'Madhava Reddy Vemireddy',
-    bioTitle: 'Desarrollador Full Stack',
-    description:
-      'Me especializo en crear frontends receptivos con React y backends escalables con .NET C#. Me enfoco en entregar soluciones web modernas, eficientes y fáciles de usar.',
-    aboutLinkText: 'Sobre Mí',
-    aboutLinkURL: '/sobre-mi',
-    cvLinkText: 'Ver Currículum',
-    skillTitle: 'Habilidades y Experiencia',
-    skillSubTitle: 'Tecnologías y herramientas con las que he trabajado',
-    educationTitle: 'Formación Académica',
-    educationSubTitle: 'Aspectos destacados de los logros académicos',
-    experienceTitle: 'Experiencia Profesional',
-    experienceSubTitle: 'Construyendo aplicaciones escalables y eficientes',
-    independentProjectTitle: 'Soluciones Independientes',
-    independentProjectSubTitle: 'Iniciativas personales y contribuciones',
-    professionalProjectTitle: 'Proyectos Profesionales',
-    professionalProjectSubTitle: 'Contribuciones impactantes a la organización',
-    contactTitle: 'Contáctame',
-    fullNameLabel: 'Tu Nombre Completo',
-    emailLabel: 'Dirección de Correo',
-    mobileLabel: 'Número de Teléfono',
-    messageLabel: 'Escribe un Mensaje',
-    buttonLabel: 'Enviar Mensaje',
-    successMessageTitle: '¡Gracias por elegirnos!',
-    successMessage: 'Nuestro equipo se pondrá en contacto contigo pronto.',
-  },
+  en: english,
+  fr: english,
+  es: english,
 };
 
 export default messages;

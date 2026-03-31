@@ -40,14 +40,14 @@ interface ContactDetailsState {
 }
 
 const initialState: ContactDetailsState = {
-  siteTitle: 'MaddyTech',
+  siteTitle: 'Madhava Reddy Vemireddy',
   location: {
-    label: 'Our Location',
-    value: 'No 16, 18th Cross 6th Main, BTM 2nd Stage, Bangalore, 560076',
+    label: 'Based in',
+    value: 'Bengaluru, India',
   },
   email: {
     label: 'Email Address',
-    value: 'vemireddyomr@gmail.com',
+    value: 'Madhav.reddy.vemireddy@gmail.com',
   },
   instagram: {
     label: 'Instagram',
@@ -58,13 +58,13 @@ const initialState: ContactDetailsState = {
     value: 'Madhava Reddy Vemireddy',
   },
   phone: {
-    label: 'Urgent Call',
+    label: 'Call or WhatsApp',
     number1: '+91 8886380746',
     number2: '+91 6301804286',
   },
   socialLinks: {
     github: 'https://github.com/maddy-tech-hub',
-    gmail: 'mailto:vemireddyomr@gmail.com',
+    gmail: 'mailto:Madhav.reddy.vemireddy@gmail.com',
     linkedin: 'https://www.linkedin.com/in/madhava-reddy-vemireddy-9a0826167',
     whatsapp: 'https://wa.me/8886380746',
     instagram: 'https://www.instagram.com/vemireddy_official',

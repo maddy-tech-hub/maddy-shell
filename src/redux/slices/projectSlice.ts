@@ -4,75 +4,102 @@ import { cardInfo } from '@src/interfaces/common';
 const initialState: { projects: cardInfo[] } = {
   projects: [
     {
-      title: 'React Micro-Frontend (MFE) Portfolio',
-      subTitle: 'Personal Project',
+      title: 'Finance Tracker Platform',
+      subTitle: 'Personal full-stack product',
+      summary:
+        'A personal product focused on helping users understand spending, track budgets, and build better financial visibility.',
+      stack: ['React', 'TypeScript', 'ASP.NET Web API', 'PostgreSQL'],
       details: [
-        ' Developed a comprehensive React-based Micro-Frontend (MFE) portfolio.',
-        ' Key repositories: ui-remote (shared UI), auth-remote (authentication), shell-host (host shell).',
-        ' Features: User login/signup, reusable widgets, and contact forms.',
-        ' Technologies: ReactJS, Webpack, GitHub Actions, AWS S3.',
-        ' Backend API: .NET Core for account management and email services.',
-        ' CI/CD: Automated deployments with GitHub Actions.',
+        'Designed a dashboard experience for transactions, savings goals, budget insights, and month-over-month cash-flow visibility.',
+        'Built reusable React sections for summaries, category breakdowns, charts, and transaction workflows.',
+        'Implemented ASP.NET Web API endpoints for authentication, recurring entries, budgeting rules, and analytics.',
+        'Structured the backend with clean service boundaries so the product can grow without becoming hard to maintain.',
       ],
-      duration: 'Duration: 2024',
-      linkTitle: 'View Project',
-      url: '/',
+      duration: '2026',
+      linkTitle: 'View Live App',
+      url: 'https://smartfinancetrack.netlify.app/',
       type: 'personal',
     },
     {
-      title: 'IRASAH (React Front-End App)',
-      subTitle: 'Static Training Institute Application',
+      title: 'React Micro-Frontend Portfolio Platform',
+      subTitle: 'Personal architecture and UI system project',
+      summary:
+        'This portfolio itself, built as a micro-frontend system to separate shell integration, auth flows, and shared UI ownership.',
+      stack: ['React', 'Webpack 5', 'Module Federation', 'Styled Components'],
       details: [
-        ' Developed a mobile-responsive website for a training institute.',
-        ' Features: Dynamic pages and email form submissions with Email.js.',
-        ' Technologies: React, Email.js.',
-        ' Deployment: Publicly hosted on irasah.com.',
+        'Split the experience into a shell app, a login app, and a shared widgets app for clearer responsibilities.',
+        'Used lazy loading, reusable UI patterns, and runtime remote loading to keep the system modular and easier to evolve.',
+        'Improved the structure so the shell handles integration while widgets and auth stay independently maintainable.',
+        'Focused on turning a few-years-old project into a cleaner, more scalable portfolio with better UX and code organization.',
       ],
-      duration: 'Duration: 2023',
-      linkTitle: 'View Project',
-      url: 'https://www.irasah.com',
+      duration: '2025 - 2026',
+      linkTitle: 'View Live Site',
+      url: 'https://maddytech.rf.gd/',
       type: 'personal',
     },
     {
-      title: 'Retail Inventory Management System (Retail IMS) Appraisals',
-      subTitle: 'Vehicle Appraisal and Inventory System for Dealerships',
+      title: 'Vehicle Turn-In & Condition Report Tool',
+      subTitle: 'Enterprise inspection and appraisal workflow',
+      summary:
+        'A multi-step tool for eligibility validation, inspection, damage capture, pricing adjustments, and final submission.',
+      stack: ['React', 'TypeScript', 'Redux', 'Axios'],
       details: [
-        ' Objective: Enabled sellers to receive quotes, manage appraisals, and conduct vehicle sales via auctions.',
-        ' Appraisal Module: Implemented workflows where sellers accept, reject, or auction price quotes from dealerships.',
-        ' Auction Workflow: Designed 45-day expiration logic for unsold vehicles with seamless transitions to auction.',
-        ' Inventory: Built management tools for dealerships to track vehicles, initiate auctions, and handle high-bid sales.',
-        ' Frontend: Created dynamic ReactJS components for quote management, appraisal status, and auction tracking.',
-        ' Backend: Developed REST APIs in .NET Core for dealership communications and bid tracking.',
-        ' Technologies: ReactJS, Redux, .NET Core, Entity Framework, PostgreSQL, AWS RDS.',
+        'Created reusable UI for VIN entry, eligibility validation, inspection categories, review steps, and final submission flows.',
+        'Implemented real-time pricing summaries and damage-based adjustments to support accurate condition reporting.',
+        'Integrated APIs for eligibility, pricing, submission, and state persistence across long-running user journeys.',
+        'Added image upload and workflow navigation that helped users move through the process with less confusion.',
       ],
-      type: 'professional',
-    },
-    {
-      title: 'Vehicle Auction Platform',
-      subTitle: 'Project for Automotive Financial Companies',
-      details: [
-        ' Objective: Enabled advanced vehicle search with customizable filters and saved searches.',
-        ' Backend: Developed REST APIs in .NET Core for dynamic filtering and user preferences.',
-        ' Frontend: Created reusable ReactJS components for search filters and modals.',
-        ' Improved bidding and purchasing workflows with support for direct purchases, autobids, and warranties.',
-        ' Technologies: ReactJS, Redux, CSS Grid, .NET Core, Entity Framework, PostgreSQL, AWS RDS.',
-      ],
+      duration: '2021 - 2023',
       type: 'professional',
     },
     {
       title: 'HCC Loan Payoff Platform',
-      subTitle: 'Loan Management for Hyundai Capital Canada',
+      subTitle: 'Loan payoff and request submission workflow',
+      summary:
+        'A loan payoff experience built to help users review loan details, understand payoff fees, and complete request submissions clearly.',
+      stack: ['React', 'ASP.NET Web API', 'REST APIs', 'Responsive UI'],
       details: [
-        ' Objective: Enabled users to view loan details, calculate fees, and submit payoff requests.',
-        ' Backend: Built REST APIs for loan details, payment fees, and payoff requests.',
-        ' Frontend: Designed a responsive interface with dynamic loan breakdown and seamless transaction flows.',
-        ' Technologies: ReactJS, Redux, CSS Grid, .NET Core, Entity Framework, PostgreSQL, AWS RDS.',
+        'Built a clean payoff journey for viewing loan details, fee calculations, and customer request submission states.',
+        'Integrated backend APIs for loan data, fee calculation logic, and payoff request processing.',
+        'Focused on responsive UX so the information-heavy flow stayed readable and easier for users to complete confidently.',
+        'Supported a product experience where clarity and trust mattered as much as technical correctness.',
       ],
+      duration: '2024',
       type: 'professional',
-    }
+    },
+    {
+      title: 'Vehicle Auction & Purchasing Platform',
+      subTitle: 'Enterprise automotive marketplace workflow',
+      summary:
+        'A high-volume auction and purchasing experience where users search, filter, save, bid, and buy through an end-to-end flow.',
+      stack: ['React', 'TypeScript', 'Redux Toolkit', 'ASP.NET Web API'],
+      details: [
+        'Built advanced filtering, saved-search flows, filter pills, sorting, pagination, and persistent URL-based search state.',
+        'Developed reusable UI for item lists, detail views, and multi-step bid or buy journeys with dynamic pricing and add-ons.',
+        'Integrated REST APIs for search data, saved searches, real-time workflow state, and purchase summary handling.',
+        'Helped make a complex transaction flow feel more guided, responsive, and reliable for end users.',
+      ],
+      duration: '2024 - 2025',
+      type: 'professional',
+    },
+    {
+      title: 'Retail IMS Appraisals Platform',
+      subTitle: 'Retail inventory and appraisal workflow system',
+      summary:
+        'A production platform focused on appraisal, quote, and inventory-related workflows for dealership and seller-facing operations.',
+      stack: ['React', 'Redux Toolkit', 'ASP.NET Web API', 'PostgreSQL'],
+      details: [
+        'Built seller and dealership workflows for appraisals, quote handling, inventory visibility, and auction transition states.',
+        'Created reusable React UI for appraisal statuses, quote actions, dealer-side workflow screens, and connected inventory views.',
+        'Integrated ASP.NET Web API services supporting communication flows, bid-related behavior, and inventory operations.',
+        'Focused on responsive UX and stable data flow across React, Redux Toolkit, and PostgreSQL-backed business workflows.',
+      ],
+      duration: '2025 - Present',
+      type: 'professional',
+    },
   ],
 };
-// Create the slice
+
 const projectSlice = createSlice({
   name: 'projects',
   initialState,
@@ -91,9 +118,7 @@ const projectSlice = createSlice({
   },
 });
 
-// Export the actions
 export const { addProject, updateProject, removeProject } =
   projectSlice.actions;
 
-// Export the reducer
 export default projectSlice.reducer;

@@ -42,3 +42,8 @@ declare module 'ui_remote/CardSection' {
   const Component: React.ComponentType<any>;
   export default Component;
 }
+
+declare module 'ui_remote/PageIntro' {
+  const Component: React.ComponentType<any>;
+  export default Component;
+}
