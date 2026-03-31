@@ -61,3 +61,4 @@ Remote defaults in local development:
 
 Integration contract lives in:
 - [MFE_CONTRACT.md](/D:/Repository's/Maddy tech site/maddy-shell/MFE_CONTRACT.md)
+
