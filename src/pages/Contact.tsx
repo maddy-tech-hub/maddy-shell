@@ -128,7 +128,7 @@ const Contact: React.FC<ContactProps> = ({ embedded = false }) => {
           formFields={formFields}
           contactInfo={contactInfo}
           externalApiUrl={
-            'https://notifications-jjss.onrender.com/api/email/send-contact-email'
+            'https://notifications-u448.onrender.com/api/email/send-contact-email'
           }
           setLoading={setLoading}
         />
