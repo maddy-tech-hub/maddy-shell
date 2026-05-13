@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Loader from './components/Misc/Loader';
 import { RootStateType } from './redux/store';
 import { useSelector } from 'react-redux';
@@ -37,6 +37,7 @@ const ShellSectionFallback: React.FC<{ text: string }> = ({ text }) => (
 const AppRoutes: React.FC = () => {
   const intl = useIntl();
   const navigate = useNavigate();
+  const locationPath = useLocation();
   useShellBridge();
   const { location, socialLinks } = useSelector(
     (state: RootStateType) => state.contactDetailsSlice
@@ -56,6 +57,7 @@ const AppRoutes: React.FC = () => {
         <RemoteBoundary>
           <Header
             menuLinks={headerData.menuLinks}
+            currentPath={locationPath.pathname}
             logoSrc={headerData.logoSrc}
             menuOpen={menuOpen}
             setMenuOpen={setMenuOpen}

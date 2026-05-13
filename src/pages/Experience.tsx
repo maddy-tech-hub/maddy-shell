@@ -21,8 +21,8 @@ const Experience: React.FC = () => {
       <PageStack>
         <PageIntro
           eyebrow="Professional experience"
-          title="Building enterprise React products with strong API integration and reliable delivery"
-          description="My experience combines frontend architecture, reusable component work, API integration, and day-to-day product execution. I've worked on complex workflows where clean UX, secure access, performance, and maintainability all matter at the same time."
+          title="Enterprise React delivery with strong API integration and senior-level ownership"
+          description="My experience combines frontend architecture, reusable component work, API integration, and day-to-day product execution across workflow-heavy enterprise products. I am joining Deloitte USI as a Consultant (Senior Role) on August 7, 2026, and remain focused on reliable delivery, clean UX, secure access, and maintainable implementation."
           highlights={[
             'React + enterprise workflows',
             'ASP.NET Web API',
@@ -30,9 +30,9 @@ const Experience: React.FC = () => {
             'Testing and debugging',
           ]}
           stats={[
-            { value: 'Senior Software Developer', label: 'Current role' },
+            { value: 'Consultant (Senior Role)', label: 'Incoming role at Deloitte USI' },
+            { value: 'August 7, 2026', label: 'Joining Deloitte USI' },
             { value: experienceValue, label: 'Years of experience' },
-            { value: 'Agile teams', label: 'Working model' },
           ]}
         />
         <CardSection

@@ -18,7 +18,7 @@ import {
   getRoundedExperienceValue,
 } from '@src/shared/utils/experience';
 import profile from '../assets/Reddy.jpg';
-import cv from '../assets/Madhava_Reddy_Full_Stack_2026.pdf';
+import cv from '../assets/Madhava_Reddy_Developer.pdf';
 
 const Profile = lazyRemote(() => import('ui_remote/Profile'), 'ui-profile');
 const CardSection = lazyRemote(
@@ -65,7 +65,8 @@ const Home: React.FC = () => {
       aboutLinkURL: intl.formatMessage({ id: 'aboutLinkURL' }),
       cvLinkText: intl.formatMessage({ id: 'cvLinkText' }),
       cvLinkURL: cv,
-      badge: 'Open to React + .NET product roles',
+      badge:
+        'Incoming Consultant (Senior Role) at Deloitte USI | Joining August 7, 2026',
     },
     highlights: [
       'React + TypeScript',
@@ -76,8 +77,8 @@ const Home: React.FC = () => {
     ],
     metrics: [
       { value: experienceValue, label: 'Years of professional delivery' },
-      { value: 'React + .NET', label: 'Core delivery stack' },
-      { value: 'Finance Tracker', label: 'Current full-stack build' },
+      { value: 'August 6, 2026', label: 'Last working day (current company)' },
+      { value: 'Immediately', label: 'Interview availability' },
     ],
   };
 
@@ -101,6 +102,7 @@ const Home: React.FC = () => {
                 <li>Reusable React UI with clean structure and maintainable state flow</li>
                 <li>ASP.NET Web API integration for secure, data-driven product journeys</li>
                 <li>Practical delivery mindset across analysis, development, testing, and release support</li>
+                <li>Joining Deloitte USI on August 7, 2026 and available for interview processes before joining</li>
               </BulletList>
             </PagePanel>
 
