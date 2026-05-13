@@ -42,8 +42,8 @@ const About: React.FC = () => {
           ]}
           stats={[
             { value: experienceValue, label: 'Years of experience' },
-            { value: 'React + ASP.NET', label: 'Main full-stack focus' },
-            { value: 'Enterprise + personal', label: 'Project range' },
+            { value: 'August 6, 2026', label: 'Last working day (current company)' },
+            { value: 'August 7, 2026', label: 'Joining Deloitte USI' },
           ]}
           actions={[
             { label: 'Explore Projects', url: appRoutes.projects },

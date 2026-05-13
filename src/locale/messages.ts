@@ -34,8 +34,8 @@ const english = {
   mobileLabel: 'Mobile Number',
   messageLabel: 'Write Message',
   buttonLabel: 'Send Message',
-  successMessageTitle: 'Thank you for choosing us!',
-  successMessage: 'Our team will contact you shortly.',
+  successMessageTitle: 'Thank you for your message.',
+  successMessage: 'I will get back to you shortly.',
 };
 
 const messages: Record<string, Record<string, string>> = {

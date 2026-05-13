@@ -2,12 +2,27 @@ import { cardInfo } from '@src/interfaces/common';
 
 export const experiences: cardInfo[] = [
   {
+    title: 'Deloitte USI',
+    subTitle: 'Consultant (Senior Role)',
+    summary:
+      'Incoming Consultant (Senior Role), focused on enterprise product delivery, scalable frontend architecture, and API-driven workflows.',
+    stack: ['React', 'TypeScript', 'ASP.NET Web API', 'Enterprise Delivery'],
+    duration: 'Starting August 7, 2026',
+    details: [
+      'Joining date: August 7, 2026.',
+      'Role focus: senior-level consulting ownership across product workflows and engineering delivery.',
+      'Scope aligned to enterprise-grade frontend quality, reusable architecture, and dependable releases.',
+    ],
+    linkTitle: 'View Professional Projects',
+    url: '/projects',
+  },
+  {
     title: 'Amiti Software Technologies Pvt. Ltd.',
     subTitle: 'Senior Software Developer',
     summary:
       'Working on enterprise React applications and API-connected workflows where usability, business rules, and maintainability all matter in production.',
     stack: ['React', 'Redux Toolkit', 'ASP.NET Web API', 'PostgreSQL'],
-    duration: 'May 2021 - Present',
+    duration: 'May 2021 - August 2026',
     details: [
       'Contribute across requirement analysis, design, development, testing, and release support for enterprise web applications.',
       'Build workflow-heavy React applications with reusable components, Hooks, Redux Toolkit, and responsive UI patterns.',
